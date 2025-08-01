@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo42lyigx7fct"]
+
+[ext_resource type="Script" uid="uid://bwhc5xjqg0vvg" path="res://scripts/weapon.gd" id="1_xu8x0"]
+[ext_resource type="PackedScene" uid="uid://dmencs02fgeg6" path="res://scenes/BasicProjectile.tscn" id="2_ekkgj"]
+
+[node name="BasicWeapon" type="Node"]
+script = ExtResource("1_xu8x0")
+projectile = ExtResource("2_ekkgj")
+metadata/_custom_type_script = "uid://bwhc5xjqg0vvg"

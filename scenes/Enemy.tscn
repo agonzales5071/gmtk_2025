@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl62ho2m0jkt8"]
+
+[ext_resource type="Script" uid="uid://b4xyydi2ujujp" path="res://scripts/enemy.gd" id="1_55jtl"]
+[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="2_mpr68"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ft8do"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mpr68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mpr68")
+}],
+"loop": true,
+"name": &"PlaceHolder",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wwv6"]
+radius = 63.0066
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
+scale = Vector2(1, 1.09374)
+collision_layer = 3
+motion_mode = 1
+script = ExtResource("1_55jtl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ft8do")
+animation = &"PlaceHolder"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5wwv6")

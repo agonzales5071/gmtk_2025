@@ -1,0 +1,60 @@
+extends CharacterBody2D
+
+class_name Player
+
+@export_range(0, 1500000, 10000, "or_greater")
+var SPEED = 1500.0
+
+@export_range(1, 100, 1, "or_greater")
+var HP = 100
+
+@export
+var weapons : Array[Weapon] = [null, null, null, null]
+
+@export
+var timeToShot = 0.25
+var lastShot : int = 0
+
+@onready var weapon_cache = %WeaponCache.get_children(false)
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+func SpawnRandomWeapon() -> Weapon:
+	return weapon_cache[randi_range(0, weapon_cache.size() - 1)].duplicate()
+
+func _process(delta: float) -> void:
+	Move()
+	CheckShoot()
+	
+func Move() -> void:
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if direction:
+		velocity = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, SPEED)
+	move_and_slide()
+
+func CheckShoot() -> void:
+	var timeInSec = Time.get_ticks_msec() / 1000.0
+	var shotIndex : int = timeInSec / timeToShot
+	if shotIndex > lastShot:
+		var weapon := weapons[shotIndex % weapons.size()]
+		lastShot = shotIndex
+		if weapon:
+			var projectile := weapon.Shoot()
+			projectile.global_position = global_position
+			%Projectiles.add_child(projectile)
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if (body is Enemy):
+		var enemy = body as Enemy
+		HP -= enemy.GiveDamage()
+		print("HP: ", HP)
+		if HP <= 0:
+			print("DED")
+			get_tree().reload_current_scene()

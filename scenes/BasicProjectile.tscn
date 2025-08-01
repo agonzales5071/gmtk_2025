@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmencs02fgeg6"]
+
+[ext_resource type="Script" uid="uid://ddy76a110lucs" path="res://scripts/basic_projectile.gd" id="1_yca2l"]
+[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_yca2l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x1xeg"]
+radius = 17.0
+height = 104.0
+
+[node name="BasicProjectile" type="CharacterBody2D"]
+script = ExtResource("1_yca2l")
+metadata/_custom_type_script = "uid://d15u5ebqfbrqf"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57079
+scale = Vector2(0.197573, 0.740474)
+texture = ExtResource("2_yca2l")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 1.57079
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_x1xeg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

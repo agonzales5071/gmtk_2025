@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://beemr4p4xdgvr"]
+
+[ext_resource type="Script" uid="uid://bk0f1dybvm88y" path="res://scripts/player.gd" id="1_p0vlq"]
+[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_v6fml"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3li8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v6fml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v6fml")
+}],
+"loop": true,
+"name": &"PlaceHolder",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdl7e"]
+radius = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6fml"]
+radius = 63.0714
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 4
+motion_mode = 1
+platform_wall_layers = 4
+script = ExtResource("1_p0vlq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3li8b")
+animation = &"PlaceHolder"
+frame_progress = 0.348949
+
+[node name="HurtboxListener" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="HurtboxListener"]
+shape = SubResource("CircleShape2D_mdl7e")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v6fml")
+
+[connection signal="body_entered" from="HurtboxListener" to="." method="_on_hurtbox_body_entered"]
