@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bvr81v5w7l1ts" path="res://scenes/SongBird.tscn" id="4_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://yf10mv81444x" path="res://Projectiles/Scene/Thump.tscn" id="6_i7141"]
-[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://cbgp3txlgiv8t" path="res://scenes/HUD.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://cdbn8n6j2dqlv" path="res://Projectiles/Scene/Rocket.tscn" id="7_4mrxx"]
 
 [node name="World" type="Node2D"]

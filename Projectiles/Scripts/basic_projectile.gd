@@ -10,11 +10,11 @@ var damage = 20
 var direction : Vector2
 
 func ProjectileInit(player : Player) -> void:
-	# Don't inherite player properties since that'd make projectiles
+	# Don't inherit player properties since that'd make projectiles
 	# follow the player
 	top_level = true
 	
-	global_position = player.global_position
+	global_position = (get_parent() as Node2D).global_position
 	var nearestEnemy = GetNearestEnemy()
 	if nearestEnemy:
 		direction = global_position.direction_to(nearestEnemy.global_position)

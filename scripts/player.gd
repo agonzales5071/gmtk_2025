@@ -12,6 +12,8 @@ var HP = 100
 
 @export
 var weapons : Array[Weapon] = [null, null, null, null]
+@onready
+var weaponsPlacement: Array[Node2D] = [$Slot0, $Slot1, $Slot2, $Slot3]
 
 @export
 var timeToShot = 0.5
@@ -30,7 +32,7 @@ func SpawnRandomWeapon() -> Weapon:
 func _process(delta: float) -> void:
 	Move()
 	CheckShoot()
-	
+
 func Move() -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,7 +52,7 @@ func CheckShoot() -> void:
 		lastShot = shotIndex
 		if weapon:
 			var projectile := weapon.Shoot()
-			add_child(projectile)
+			weaponsPlacement[shotIndex % weapons.size()].add_child(projectile)
 			projectile.ProjectileInit(self)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
