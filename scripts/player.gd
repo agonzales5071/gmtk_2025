@@ -64,4 +64,5 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			print("HP: ", HP)
 			if HP <= 0:
 				print("DED")
+				$AudioManager.play_sound_effect("death")
 				get_tree().reload_current_scene()
