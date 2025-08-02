@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bja2xrtnx7ks5" path="res://music/trumpets_100bpm.wav" id="7_buqc2"]
 [ext_resource type="AudioStream" uid="uid://djor726688iom" path="res://music/kazoo_100bpm.wav" id="8_k2lc1"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node2D"]
 script = ExtResource("1_hmi33")
 
 [node name="DrumAudioPlayer" type="AudioStreamPlayer2D" parent="."]
