@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://duf8ds6hwxvey"]
+
+[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="2_lsiay"]
+[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_trmtc"]
+[ext_resource type="Script" uid="uid://h83jxvy61hxp" path="res://Projectiles/Scripts/goo_sling.gd" id="2_w1f1q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r82wa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_trmtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lsiay")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u880i"]
+radius = 296.0
+
+[node name="GooSling" type="Node2D"]
+script = ExtResource("2_w1f1q")
+metadata/_custom_type_script = "uid://d15u5ebqfbrqf"
+
+[node name="GooProjectile" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.780392)
+texture = ExtResource("2_lsiay")
+
+[node name="GooSplat" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.23, 0.23, 0.23, 0.611765)
+scale = Vector2(4.21219, 4.21219)
+sprite_frames = SubResource("SpriteFrames_r82wa")
+frame_progress = 0.880466
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_u880i")

@@ -22,12 +22,12 @@ var invincible = false
 
 @onready var weapon_cache = %WeaponCache.get_children(false)
 
+func GiveWeapon(weapon : Weapon, slot : int) -> void:
+	weapons[slot] = weapon.duplicate()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
-
-func SpawnRandomWeapon() -> Weapon:
-	return weapon_cache[randi_range(0, weapon_cache.size() - 1)].duplicate()
 
 func _process(delta: float) -> void:
 	Move()

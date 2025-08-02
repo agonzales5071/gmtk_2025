@@ -13,22 +13,22 @@ func _ready():
 	target_pos = player.position
 	SPEED = SPEED*2
 	HP = HP/2
-	
+
 func _process(delta):
-	var direction = position.direction_to(player.position)
-	if direction:
-		if direction.x > 0:
-			animated_sprite.flip_h = true
-		else:
-			animated_sprite.flip_h = false
 	if t < 1.0:
 		t += delta / travel_time
-		
-		var x = lerp(start_pos.x, target_pos.x, t)
-
-		# Parabolic arc:
-		var y = lerp(start_pos.y, target_pos.y, t) - arc_height * 4 * t * (1 - t)
-
-		position = Vector2(x, y)
+		var nextPos = Math.GetParabolicPos(start_pos, target_pos, arc_height, t)
+		rotation = nextPos.direction_to(position).angle()
+		position = nextPos
+		if start_pos.x < target_pos.x:
+			animated_sprite.flip_h = true
+			rotation += PI
 	else:
+		rotation = 0
+		var direction = position.direction_to(player.position)
+		if direction:
+			if direction.x > 0:
+				animated_sprite.flip_h = true
+			else:
+				animated_sprite.flip_h = false
 		super._process(delta)

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://o4tuo0pyjdav"]
+
+[ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="1_fmraw"]
+[ext_resource type="PackedScene" uid="uid://duf8ds6hwxvey" path="res://Projectiles/Scene/GooSling.tscn" id="2_wkvw8"]
+[ext_resource type="PackedScene" uid="uid://yf10mv81444x" path="res://Projectiles/Scene/Thump.tscn" id="3_m76bf"]
+[ext_resource type="PackedScene" uid="uid://cdbn8n6j2dqlv" path="res://Projectiles/Scene/Rocket.tscn" id="4_vwrdq"]
+
+[node name="WeaponCache" type="Node"]
+
+[node name="BasicWeapon" parent="." instance=ExtResource("1_fmraw")]
+
+[node name="BasicWeaponGoo" parent="." instance=ExtResource("1_fmraw")]
+projectile = ExtResource("2_wkvw8")
+
+[node name="BasicWeaponThump" parent="." instance=ExtResource("1_fmraw")]
+projectile = ExtResource("3_m76bf")
+
+[node name="BasicWeaponRocket" parent="." instance=ExtResource("1_fmraw")]
+projectile = ExtResource("4_vwrdq")
