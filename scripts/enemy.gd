@@ -6,6 +6,7 @@ class_name Enemy
 @export var damage = 20
 @export var HP = 20
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
+@onready var animated_sprite = $AnimatedSprite2D
 
 func GiveDamage() -> float:
 	return damage
@@ -19,6 +20,8 @@ func _process(delta: float) -> void:
 	var direction = position.direction_to(player.position)
 	if direction:
 		velocity = direction * SPEED
+		if direction.x > 0:
+			animated_sprite.flip_h = true
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:
