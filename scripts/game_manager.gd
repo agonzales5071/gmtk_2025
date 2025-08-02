@@ -39,15 +39,13 @@ func game_over():
 func new_game():
 	score = 0
 	%HUD.update_score(score)
-	%HUD.show_message("Get Ready")
+	#%HUD.show_message("Get Ready")
 	#$Player.start($StartPosition.position)
 	%StartTimer.start()
 
 func _on_start_timer_timeout() -> void:
-	print("Start")
 	%ScoreTimer.start()
 
 func _on_score_timer_timeout() -> void:
-	print("score")
 	score += 1
 	%HUD.update_score(score)
