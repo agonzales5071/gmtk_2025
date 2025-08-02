@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://yf10mv81444x"]
+
+[ext_resource type="Script" uid="uid://cqxmvuxaabqj" path="res://Projectiles/Scripts/thump.gd" id="1_2if3c"]
+[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_mjath"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2if3c"]
+radius = 501.722
+
+[node name="BasicProjectile" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2if3c")
+metadata/_custom_type_script = "uid://d15u5ebqfbrqf"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.816108, 0.404577, 0.126487, 0.215686)
+scale = Vector2(7, 7)
+texture = ExtResource("2_mjath")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.57079
+shape = SubResource("CircleShape2D_2if3c")
+
+[node name="TimerDelete" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[node name="TimerDamage" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="TimerDelete" to="." method="_on_timer_delete_timeout"]
+[connection signal="timeout" from="TimerDamage" to="." method="_on_timer_damage_timeout"]

@@ -14,7 +14,7 @@ var HP = 100
 var weapons : Array[Weapon] = [null, null, null, null]
 
 @export
-var timeToShot = 0.25
+var timeToShot = 0.5
 var lastShot : int = 0
 var invincible = false
 
@@ -50,8 +50,8 @@ func CheckShoot() -> void:
 		lastShot = shotIndex
 		if weapon:
 			var projectile := weapon.Shoot()
-			projectile.global_position = global_position
-			%Projectiles.add_child(projectile)
+			add_child(projectile)
+			projectile.ProjectileInit(self)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if (body is Enemy):

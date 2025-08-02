@@ -9,8 +9,12 @@ var damage = 20
 
 var direction : Vector2
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func ProjectileInit(player : Player) -> void:
+	# Don't inherite player properties since that'd make projectiles
+	# follow the player
+	top_level = true
+	
+	global_position = player.global_position
 	var nearestEnemy = GetNearestEnemy()
 	if nearestEnemy:
 		direction = global_position.direction_to(nearestEnemy.global_position)
@@ -21,7 +25,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	global_position += direction * delta
-	
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body is Enemy):
 		var enemy = body as Enemy

@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://de3lvg2f4awc5"]
+[gd_scene load_steps=10 format=3 uid="uid://de3lvg2f4awc5"]
 
 [ext_resource type="PackedScene" uid="uid://dl2og8ea8mv4g" path="res://scenes/GameManager.tscn" id="1_71j4m"]
 [ext_resource type="PackedScene" uid="uid://beemr4p4xdgvr" path="res://scenes/Player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://scenes/Enemy.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://ba25e0vgqcnld" path="res://scenes/PogoEnemy.tscn" id="3_i7141"]
 [ext_resource type="PackedScene" uid="uid://dhratatefh4p4" path="res://scenes/Blocker.tscn" id="3_k0juu"]
-[ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://scenes/BasicWeapon.tscn" id="4_k0juu"]
-[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://yf10mv81444x" path="res://Projectiles/Scene/Thump.tscn" id="6_i7141"]
+[ext_resource type="PackedScene" uid="uid://cbgp3txlgiv8t" path="res://scenes/HUD.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://cdbn8n6j2dqlv" path="res://Projectiles/Scene/Rocket.tscn" id="7_4mrxx"]
 
 [node name="World" type="Node2D"]
 
@@ -16,7 +18,7 @@ enemies = Array[PackedScene]([ExtResource("3_4wyf3"), ExtResource("3_i7141")])
 [node name="Player" parent="." node_paths=PackedStringArray("weapons") groups=["Player"] instance=ExtResource("1_nnsk1")]
 unique_name_in_owner = true
 position = Vector2(11, 28)
-weapons = [NodePath("../WeaponCache/BasicWeapon"), null, null]
+weapons = [NodePath("../WeaponCache/BasicWeapon"), NodePath("../WeaponCache/BasicWeaponRocket"), NodePath("../WeaponCache/BasicWeaponThump")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.25, 0.25)
@@ -50,8 +52,11 @@ unique_name_in_owner = true
 
 [node name="BasicWeapon" parent="WeaponCache" instance=ExtResource("4_k0juu")]
 
-[node name="Projectiles" type="Node" parent="."]
-unique_name_in_owner = true
+[node name="BasicWeaponThump" parent="WeaponCache" instance=ExtResource("4_k0juu")]
+projectile = ExtResource("6_i7141")
+
+[node name="BasicWeaponRocket" parent="WeaponCache" instance=ExtResource("4_k0juu")]
+projectile = ExtResource("7_4mrxx")
 
 [node name="HUD" parent="." instance=ExtResource("6_qfnet")]
 unique_name_in_owner = true

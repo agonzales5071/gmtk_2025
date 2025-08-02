@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdbn8n6j2dqlv"]
+
+[ext_resource type="PackedScene" uid="uid://dmencs02fgeg6" path="res://Projectiles/Scene/BasicProjectile.tscn" id="1_ymq0k"]
+[ext_resource type="Script" uid="uid://bh1shragighqn" path="res://rocket.gd" id="2_5ct60"]
+[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="3_1icdt"]
+[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="3_6cdhs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_at4bf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1icdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6cdhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1icdt")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ct60"]
+radius = 68.884
+
+[node name="Rocket" instance=ExtResource("1_ymq0k")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_5ct60")
+rangeMult = 2.0
+SPEED = 500.0
+damage = 40
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0.917647, 0.211765, 1)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+visible = false
+
+[node name="Explosion" type="Node2D" parent="." index="2"]
+
+[node name="ExplosionSprite" type="AnimatedSprite2D" parent="Explosion" index="0"]
+visible = false
+modulate = Color(0.152941, 0.12549, 1, 1)
+sprite_frames = SubResource("SpriteFrames_at4bf")
+frame = 2
+frame_progress = 1.0
+
+[node name="ExplosionAOE" type="CollisionShape2D" parent="Explosion" index="1"]
+visible = false
+shape = SubResource("CircleShape2D_5ct60")
+
+[connection signal="animation_finished" from="Explosion/ExplosionSprite" to="." method="_on_explosion_sprite_animation_finished"]

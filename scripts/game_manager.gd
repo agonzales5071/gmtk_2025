@@ -1,6 +1,6 @@
 extends Node
 
-@export var SpawnRate = 1.0
+@export var SpawnRate = 0.5
 @export var SpawnRangeMax = 2000
 @export var SpawnRangeMin = 1000
 @export
