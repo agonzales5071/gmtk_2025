@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba25e0vgqcnld"]
+
+[ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://scenes/Enemy.tscn" id="1_nwkrn"]
+[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_acht4"]
+[ext_resource type="Script" uid="uid://n8aogmj72w03" path="res://scripts/pogo_enemy.gd" id="2_lvkdj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvkdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_acht4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_nwkrn")]
+script = ExtResource("2_lvkdj")
+GRAVITY = 1000.0
+AIR_TIME = 1.5
+APPROACH_MIN = 0.05
+APPROACH_MAX = 0.3
+APPROACH_DISTANCE = 400.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lvkdj")
+animation = &"default"

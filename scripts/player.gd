@@ -16,6 +16,7 @@ var weapons : Array[Weapon] = [null, null, null, null]
 @export
 var timeToShot = 0.25
 var lastShot : int = 0
+var invincible = false
 
 @onready var weapon_cache = %WeaponCache.get_children(false)
 
@@ -56,8 +57,9 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if (body is Enemy):
 		hit.emit()
 		var enemy = body as Enemy
-		HP -= enemy.GiveDamage()
-		print("HP: ", HP)
-		if HP <= 0:
-			print("DED")
-			get_tree().reload_current_scene()
+		if (!invincible):
+			HP -= enemy.GiveDamage()
+			print("HP: ", HP)
+			if HP <= 0:
+				print("DED")
+				get_tree().reload_current_scene()
