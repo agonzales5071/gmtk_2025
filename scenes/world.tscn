@@ -26,7 +26,6 @@ zoom = Vector2(0.25, 0.25)
 position_smoothing_speed = 0.0
 
 [node name="AudioManager" parent="Player" instance=ExtResource("6_e3hyu")]
-audio_library = null
 
 [node name="Blockers" type="Node" parent="."]
 
