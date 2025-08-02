@@ -1,16 +1,46 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg37c88lxm4to"]
+[gd_scene load_steps=18 format=3 uid="uid://bg37c88lxm4to"]
 
 [ext_resource type="Script" uid="uid://bxkgu6ehj43tf" path="res://scripts/audio_manager.gd" id="1_hmi33"]
+[ext_resource type="Script" uid="uid://dkc7ab0l3hy3w" path="res://scripts/audio_library.gd" id="2_jtlmv"]
 [ext_resource type="AudioStream" uid="uid://d4iifgx61vfcd" path="res://music/drums_100bpm.wav" id="2_muqnj"]
 [ext_resource type="AudioStream" uid="uid://b71ghjeyedqu0" path="res://music/bass_100bpm.wav" id="3_5jw7j"]
+[ext_resource type="Script" uid="uid://b7e8yj4hgmyx0" path="res://scripts/sound_effect.gd" id="3_buqc2"]
+[ext_resource type="AudioStream" uid="uid://orontpmjvrqw" path="res://sound_effects/ui_select_G.wav" id="4_k2lc1"]
 [ext_resource type="AudioStream" uid="uid://bg5t7mcqm5eca" path="res://music/guitar_100bpm.wav" id="4_qtie0"]
 [ext_resource type="AudioStream" uid="uid://cralpqdk45ipm" path="res://music/piano_100bpm.wav" id="5_3uvv3"]
+[ext_resource type="AudioStream" uid="uid://difb1a2umcjtn" path="res://sound_effects/ui_undo_C.wav" id="5_7plhp"]
 [ext_resource type="AudioStream" uid="uid://dhiit784xix07" path="res://music/violins_100bpm.wav" id="6_jtlmv"]
+[ext_resource type="AudioStream" uid="uid://c03exx8u03b3d" path="res://sound_effects/death_brass.wav" id="6_n7gtt"]
 [ext_resource type="AudioStream" uid="uid://bja2xrtnx7ks5" path="res://music/trumpets_100bpm.wav" id="7_buqc2"]
 [ext_resource type="AudioStream" uid="uid://djor726688iom" path="res://music/kazoo_100bpm.wav" id="8_k2lc1"]
 
-[node name="AudioManager" type="Node2D"]
+[sub_resource type="Resource" id="Resource_wk67d"]
+script = ExtResource("3_buqc2")
+tag = "ui_select"
+stream = ExtResource("4_k2lc1")
+metadata/_custom_type_script = "uid://b7e8yj4hgmyx0"
+
+[sub_resource type="Resource" id="Resource_lp0i2"]
+script = ExtResource("3_buqc2")
+tag = "ui_undo"
+stream = ExtResource("5_7plhp")
+metadata/_custom_type_script = "uid://b7e8yj4hgmyx0"
+
+[sub_resource type="Resource" id="Resource_kuv82"]
+script = ExtResource("3_buqc2")
+tag = "death"
+stream = ExtResource("6_n7gtt")
+metadata/_custom_type_script = "uid://b7e8yj4hgmyx0"
+
+[sub_resource type="Resource" id="Resource_nqh3p"]
+script = ExtResource("2_jtlmv")
+sound_effects = Array[ExtResource("3_buqc2")]([SubResource("Resource_wk67d"), SubResource("Resource_lp0i2"), SubResource("Resource_kuv82")])
+metadata/_custom_type_script = "uid://dkc7ab0l3hy3w"
+
+[node name="AudioManager" type="Node2D" node_paths=PackedStringArray("polyphonic_sound_effect_player")]
 script = ExtResource("1_hmi33")
+polyphonic_sound_effect_player = NodePath("PolyphonicSoundEffectPlayer")
+audio_library = SubResource("Resource_nqh3p")
 
 [node name="DrumAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
@@ -53,3 +83,5 @@ position = Vector2(11, 28)
 stream = ExtResource("8_k2lc1")
 autoplay = true
 bus = &"KazooBus"
+
+[node name="PolyphonicSoundEffectPlayer" type="AudioStreamPlayer2D" parent="."]

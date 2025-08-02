@@ -1,5 +1,23 @@
-extends Node
+extends Node2D
 
+@export var polyphonic_sound_effect_player: AudioStreamPlayer2D
+@export var audio_library: AudioLibrary
+
+func _ready():
+	polyphonic_sound_effect_player.stream = AudioStreamPolyphonic.new()
+	polyphonic_sound_effect_player.stream.polyphony = 32
+
+# call this function to play sound effects!
+func play_sound_effect(_tag: String) -> void:
+	if _tag:
+		var audio_stream = audio_library.get_audio_stream(_tag)
+		if !polyphonic_sound_effect_player.playing:
+			polyphonic_sound_effect_player.play()
+		var polyphonic_stream_playback := polyphonic_sound_effect_player.get_stream_playback()
+		polyphonic_stream_playback.play_stream(audio_stream)
+	else:
+		printerr("no tag provided --- cannot play sound effect!")
+	
 var bass_active: bool = false
 var guitar_active: bool = false
 var piano_active: bool = false
@@ -9,6 +27,13 @@ var kazoo_active: bool = false
 
 # for testing - control the separate audio tracks w/ number keys
 func _input(event):
+	# sound effects:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		play_sound_effect("ui_select")
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		play_sound_effect("ui_undo")
+		
+	# music tracks:
 	if Input.is_key_pressed(KEY_1):
 		bass_active = !bass_active
 		print("bass track: %s" % [bass_active])
