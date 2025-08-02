@@ -1,10 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb0sco5uhseyh"]
+[gd_scene load_steps=7 format=3 uid="uid://cb0sco5uhseyh"]
 
 [ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://Enemies/Enemy.tscn" id="1_6ej2f"]
 [ext_resource type="Script" uid="uid://dhqiarc78psco" path="res://Enemies/Scripts/cymbal_gorilla.gd" id="2_nf7e6"]
+[ext_resource type="Texture2D" uid="uid://cpjhf4oilx474" path="res://SpriteSheets/Cymbal gorilla.PNG" id="3_iwbdk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwit6"]
+atlas = ExtResource("3_iwbdk")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlk47"]
+atlas = ExtResource("3_iwbdk")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_no20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwit6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlk47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Enemy" instance=ExtResource("1_6ej2f")]
 script = ExtResource("2_nf7e6")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1.25, 0.75)
+sprite_frames = SubResource("SpriteFrames_no20m")

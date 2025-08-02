@@ -1,0 +1,35 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://cacpuwthx8cp4"
+path="res://.godot/imported/Nordic Metal Band.otf-1c45f3b5bd981cd761f3c60aa14a7515.fontdata"
+
+[deps]
+
+source_file="res://fonts/Nordic Metal Band.otf"
+dest_files=["res://.godot/imported/Nordic Metal Band.otf-1c45f3b5bd981cd761f3c60aa14a7515.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -26,7 +26,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" instance=ExtResource("1_cde8x")]
+[node name="Enemy2" instance=ExtResource("1_cde8x")]
 collision_mask = 0
 script = ExtResource("2_xluqx")
 peaked = false

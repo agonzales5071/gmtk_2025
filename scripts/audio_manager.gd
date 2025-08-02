@@ -28,10 +28,10 @@ var kazoo_active: bool = false
 # for testing - control the separate audio tracks w/ number keys
 func _input(event):
 	# sound effects:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		play_sound_effect("ui_select")
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		play_sound_effect("ui_undo")
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		#play_sound_effect("ui_select")
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		#play_sound_effect("ui_undo")
 		
 	# music tracks:
 	if Input.is_key_pressed(KEY_1):

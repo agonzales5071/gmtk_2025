@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://bg37c88lxm4to"]
 
 [ext_resource type="Script" uid="uid://bxkgu6ehj43tf" path="res://scripts/audio_manager.gd" id="1_hmi33"]
-[ext_resource type="Script" uid="uid://dkc7ab0l3hy3w" path="res://scripts/audio_library.gd" id="2_jtlmv"]
+[ext_resource type="Script" path="res://scripts/audio_library.gd" id="2_jtlmv"]
 [ext_resource type="AudioStream" uid="uid://d4iifgx61vfcd" path="res://music/drums_100bpm.wav" id="2_muqnj"]
 [ext_resource type="AudioStream" uid="uid://b71ghjeyedqu0" path="res://music/bass_100bpm.wav" id="3_5jw7j"]
-[ext_resource type="Script" uid="uid://b7e8yj4hgmyx0" path="res://scripts/sound_effect.gd" id="3_buqc2"]
+[ext_resource type="Script" path="res://scripts/sound_effect.gd" id="3_buqc2"]
 [ext_resource type="AudioStream" uid="uid://orontpmjvrqw" path="res://sound_effects/ui_select_G.wav" id="4_k2lc1"]
 [ext_resource type="AudioStream" uid="uid://bg5t7mcqm5eca" path="res://music/guitar_100bpm.wav" id="4_qtie0"]
 [ext_resource type="AudioStream" uid="uid://cralpqdk45ipm" path="res://music/piano_100bpm.wav" id="5_3uvv3"]
@@ -46,42 +46,43 @@ audio_library = SubResource("Resource_nqh3p")
 position = Vector2(11, 28)
 stream = ExtResource("2_muqnj")
 autoplay = true
-bus = &"DrumBus"
+bus = &"Music"
 
 [node name="BassAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
 stream = ExtResource("3_5jw7j")
 autoplay = true
-bus = &"BassBus"
+bus = &"Music"
 
 [node name="GuitarAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
 stream = ExtResource("4_qtie0")
 autoplay = true
-bus = &"GuitarBus"
+bus = &"Music"
 
 [node name="PianoAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
 stream = ExtResource("5_3uvv3")
 autoplay = true
-bus = &"PianoBus"
+bus = &"Music"
 
 [node name="ViolinsAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
 stream = ExtResource("6_jtlmv")
 autoplay = true
-bus = &"ViolinsBus"
+bus = &"Music"
 
 [node name="TrumpetsAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
 stream = ExtResource("7_buqc2")
 autoplay = true
-bus = &"TrumpetsBus"
+bus = &"Music"
 
 [node name="KazooAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(11, 28)
 stream = ExtResource("8_k2lc1")
 autoplay = true
-bus = &"KazooBus"
+bus = &"Music"
 
 [node name="PolyphonicSoundEffectPlayer" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

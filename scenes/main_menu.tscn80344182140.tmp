@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=3 uid="uid://deyi0iapouarl"]
+
+[ext_resource type="FontFile" uid="uid://cacpuwthx8cp4" path="res://fonts/Nordic Metal Band.otf" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://ds868r0l5gxp0" path="res://scripts/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://cxic7hb85k346" path="res://SpriteSheets/cymbal-monkey.PNG" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://cgomdfey44705" path="res://fonts/GrapeSoda.ttf" id="2_oa1go"]
+[ext_resource type="Texture2D" uid="uid://cpjhf4oilx474" path="res://SpriteSheets/Cymbal gorilla.PNG" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://dr2s8w42emm0c" path="res://SpriteSheets/titlescreen.png" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://bg37c88lxm4to" path="res://scenes/AudioManager.tscn" id="7_oa1go"]
+[ext_resource type="PackedScene" uid="uid://pfbhp7vxtr3e" path="res://scenes/volumeControl.tscn" id="8_tbmy8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ln24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5onr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 0.721569)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.670588, 0.670588, 0.670588, 0.498039)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rtw2f")
+
+[node name="AudioManager" parent="." instance=ExtResource("7_oa1go")]
+audio_library = null
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 800.0
+texture = ExtResource("4_wu84c")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 11.0
+offset_right = 931.0
+offset_bottom = 137.0
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 120
+text = "one man band"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2/Label"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 145.0
+offset_right = 779.0
+offset_bottom = 230.0
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("1_06t4h")
+theme_override_font_sizes/font_size = 80
+text = "battle for the airwaves"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_8ln24")
+layout_mode = 0
+offset_left = 691.0
+offset_top = 229.0
+offset_right = 1331.0
+offset_bottom = 550.0
+rotation = 0.270526
+texture = ExtResource("2_bqqt6")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_8ln24")
+layout_mode = 0
+offset_left = -141.0
+offset_top = 387.0
+offset_right = 499.0
+offset_bottom = 708.0
+rotation = -0.270526
+texture = ExtResource("3_wu84c")
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 11
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 432.0
+offset_top = 436.0
+offset_right = 688.0
+offset_bottom = 628.0
+grow_horizontal = 2
+
+[node name="Start Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_oa1go")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q5onr")
+text = "Start Game"
+
+[node name="Settings Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_oa1go")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q5onr")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_oa1go")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q5onr")
+text = "Exit"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 293.0
+offset_right = 648.0
+offset_bottom = 396.0
+
+[node name="Master" parent="VBoxContainer3" instance=ExtResource("8_tbmy8")]
+layout_mode = 2
+
+[node name="Music" parent="VBoxContainer3" instance=ExtResource("8_tbmy8")]
+layout_mode = 2
+
+[node name="SFX" parent="VBoxContainer3" instance=ExtResource("8_tbmy8")]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
