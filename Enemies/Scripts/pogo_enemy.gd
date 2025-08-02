@@ -1,4 +1,4 @@
-extends "res://scripts/enemy.gd"
+extends "res://Enemies/Scripts/enemy.gd"
 
 @export var GRAVITY: float = 1000.0
 @export var AIR_TIME: float = 1.5 # Duration of the arc

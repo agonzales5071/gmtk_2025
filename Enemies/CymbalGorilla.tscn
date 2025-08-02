@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb0sco5uhseyh"]
+
+[ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://Enemies/Enemy.tscn" id="1_6ej2f"]
+[ext_resource type="Script" uid="uid://dhqiarc78psco" path="res://Enemies/Scripts/cymbal_gorilla.gd" id="2_nf7e6"]
+
+[node name="Enemy" instance=ExtResource("1_6ej2f")]
+script = ExtResource("2_nf7e6")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(1.25, 0.75)

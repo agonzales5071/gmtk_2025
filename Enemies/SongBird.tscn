@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvr81v5w7l1ts"]
+[gd_scene load_steps=7 format=3 uid="uid://bvr81v5w7l1ts"]
 
-[ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://scenes/Enemy.tscn" id="1_cde8x"]
+[ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://Enemies/Enemy.tscn" id="1_cde8x"]
 [ext_resource type="Texture2D" uid="uid://dr5852bh8vjdh" path="res://SpriteSheets/birb.png" id="2_niyco"]
+[ext_resource type="Script" uid="uid://cqdabj4eu50ul" path="res://Enemies/Scripts/songbird.gd" id="2_xluqx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00swf"]
 atlas = ExtResource("2_niyco")
@@ -26,8 +27,12 @@ animations = [{
 }]
 
 [node name="Enemy" instance=ExtResource("1_cde8x")]
+collision_mask = 0
+script = ExtResource("2_xluqx")
+peaked = false
+target_pos = Vector2(0, 0)
+arc_height = 1000.0
+travel_time = 2.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_pltva")
-animation = &"default"
-autoplay = "default"
