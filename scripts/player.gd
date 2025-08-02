@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+signal hit
+
 @export_range(0, 1500000, 10000, "or_greater")
 var SPEED = 1500.0
 
@@ -52,6 +54,7 @@ func CheckShoot() -> void:
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if (body is Enemy):
+		hit.emit()
 		var enemy = body as Enemy
 		HP -= enemy.GiveDamage()
 		print("HP: ", HP)

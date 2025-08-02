@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://de3lvg2f4awc5"]
+[gd_scene load_steps=7 format=3 uid="uid://de3lvg2f4awc5"]
 
 [ext_resource type="PackedScene" uid="uid://dl2og8ea8mv4g" path="res://scenes/GameManager.tscn" id="1_71j4m"]
 [ext_resource type="PackedScene" uid="uid://beemr4p4xdgvr" path="res://scenes/Player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://scenes/Enemy.tscn" id="3_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dhratatefh4p4" path="res://scenes/Blocker.tscn" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://scenes/BasicWeapon.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://cbgp3txlgiv8t" path="res://scenes/HUD.tscn" id="6_qfnet"]
 
 [node name="World" type="Node2D"]
 
@@ -50,3 +51,18 @@ unique_name_in_owner = true
 
 [node name="Projectiles" type="Node" parent="."]
 unique_name_in_owner = true
+
+[node name="HUD" parent="." instance=ExtResource("6_qfnet")]
+unique_name_in_owner = true
+
+[node name="StartTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="start_game" from="HUD" to="GameManager" method="new_game"]
+[connection signal="timeout" from="StartTimer" to="GameManager" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="GameManager" method="_on_score_timer_timeout"]
