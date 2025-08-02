@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dhratatefh4p4" path="res://scenes/Blocker.tscn" id="3_k0juu"]
 [ext_resource type="PackedScene" uid="uid://bvr81v5w7l1ts" path="res://scenes/SongBird.tscn" id="4_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://bg37c88lxm4to" path="res://scenes/AudioManager.tscn" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://yf10mv81444x" path="res://Projectiles/Scene/Thump.tscn" id="6_i7141"]
-[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://cbgp3txlgiv8t" path="res://scenes/HUD.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://cdbn8n6j2dqlv" path="res://Projectiles/Scene/Rocket.tscn" id="7_4mrxx"]
-[ext_resource type="AudioStream" uid="uid://efo47drvhvda" path="res://music/drum_beat_120bpm.wav" id="11_e3hyu"]
 
 [node name="World" type="Node2D"]
 
@@ -26,9 +26,7 @@ weapons = [NodePath("../WeaponCache/BasicWeapon"), NodePath("../WeaponCache/Basi
 zoom = Vector2(0.25, 0.25)
 position_smoothing_speed = 0.0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("11_e3hyu")
-autoplay = true
+[node name="AudioManager" parent="Player" instance=ExtResource("6_e3hyu")]
 
 [node name="Blockers" type="Node" parent="."]
 
