@@ -23,6 +23,8 @@ func TakeDamage(amount: float) -> void:
 	HP -= amount
 	health_bar.value = HP
 	heal_bar_visible += 1
+	$Damage.text = str(amount)
+	$AnimationPlayer.play("Damage")
 	get_tree().create_timer(heal_bar_time, false).timeout.connect(\
 		func() -> void: heal_bar_visible-= 1)
 	if (HP <= 0):

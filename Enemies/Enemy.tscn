@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bl62ho2m0jkt8"]
+[gd_scene load_steps=13 format=3 uid="uid://bl62ho2m0jkt8"]
 
 [ext_resource type="Script" uid="uid://b4xyydi2ujujp" path="res://Enemies/Scripts/enemy.gd" id="1_4isyn"]
 [ext_resource type="Texture2D" uid="uid://cxic7hb85k346" path="res://SpriteSheets/cymbal-monkey.PNG" id="2_wdetw"]
+[ext_resource type="FontFile" uid="uid://cgomdfey44705" path="res://fonts/GrapeSoda.ttf" id="3_wdetw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpr68"]
 atlas = ExtResource("2_wdetw")
@@ -31,6 +32,73 @@ radius = 63.0066
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4isyn"]
 bg_color = Color(1, 0.0862745, 0, 1)
 border_blend = true
+
+[sub_resource type="Theme" id="Theme_jcwuj"]
+Label/colors/font_color = Color(0.989348, 1, 0.687725, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 9
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("3_wdetw")
+
+[sub_resource type="Animation" id="Animation_biruh"]
+resource_name = "Damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.566667),
+"transitions": PackedFloat32Array(0.297302, 0.517632, 0.129408),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -25), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n1bor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a5aut"]
+_data = {
+&"Damage": SubResource("Animation_biruh"),
+&"RESET": SubResource("Animation_n1bor")
+}
 
 [node name="Enemy2" type="CharacterBody2D" groups=["Enemies"]]
 scale = Vector2(1, 1.09374)
@@ -63,3 +131,14 @@ scale = Vector2(2.97471, 2.38919)
 theme_override_styles/fill = SubResource("StyleBoxFlat_4isyn")
 value = 50.0
 show_percentage = false
+
+[node name="Damage" type="Label" parent="."]
+offset_right = 56.0
+offset_bottom = 64.0
+theme = SubResource("Theme_jcwuj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Damage")
+libraries = {
+&"": SubResource("AnimationLibrary_a5aut")
+}
