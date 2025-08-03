@@ -12,11 +12,11 @@ visible = false
 [node name="BasicWeapon" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("2_m76bf")
 
-[node name="BasicWeaponGoo" parent="." instance=ExtResource("1_fmraw")]
-projectile = ExtResource("2_wkvw8")
-
 [node name="BasicWeaponThump" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("3_m76bf")
+
+[node name="BasicWeaponGoo" parent="." instance=ExtResource("1_fmraw")]
+projectile = ExtResource("2_wkvw8")
 
 [node name="BasicWeaponRocket" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("4_vwrdq")
