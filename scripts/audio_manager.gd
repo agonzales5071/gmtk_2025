@@ -7,6 +7,14 @@ class_name AudioManager
 
 enum Channel { BASS_ACTIVE, GUITAR_ACTIVE, PAINO_ACTIVE, VIOLINS_ACTIVE, TRUMPETS_ACTIVE, KAZOO_ACTIVE }
 
+var enabledChannels : Array[bool] = [false,false,false,false,false,false]
+
+func UpdateForWeapons(weapons : Array[Weapon]) -> void:
+	enabledChannels.fill(false)
+	for weapon in weapons:
+		if weapon:
+			enabledChannels[weapon.audioChannel] = true
+	update_audio_busses()
 
 func _ready():
 	polyphonic_sound_effect_player.stream = AudioStreamPolyphonic.new()
@@ -62,19 +70,19 @@ func _input(event):
 func update_audio_busses():
 	# bass bus
 	var bass_index = AudioServer.get_bus_index("BassBus")
-	AudioServer.set_bus_volume_db(bass_index, 0.0 if bass_active else -80.0)
+	AudioServer.set_bus_volume_db(bass_index, 0.0 if enabledChannels[Channel.BASS_ACTIVE] else -80.0)
 	# bass bus
 	var guitar_index = AudioServer.get_bus_index("GuitarBus")
-	AudioServer.set_bus_volume_db(guitar_index, 0.0 if guitar_active else -80.0)
+	AudioServer.set_bus_volume_db(guitar_index, 0.0 if enabledChannels[Channel.GUITAR_ACTIVE] else -80.0)
 	# piano bus
 	var piano_index = AudioServer.get_bus_index("PianoBus")
-	AudioServer.set_bus_volume_db(piano_index, 0.0 if piano_active else -80.0)
+	AudioServer.set_bus_volume_db(piano_index, 0.0 if enabledChannels[Channel.PAINO_ACTIVE] else -80.0)
 	# violins bus
 	var violins_index = AudioServer.get_bus_index("ViolinsBus")
-	AudioServer.set_bus_volume_db(violins_index, 0.0 if violins_active else -80.0)
+	AudioServer.set_bus_volume_db(violins_index, 0.0 if enabledChannels[Channel.VIOLINS_ACTIVE] else -80.0)
 	# trumpets bus
 	var trumpets_index = AudioServer.get_bus_index("TrumpetsBus")
-	AudioServer.set_bus_volume_db(trumpets_index, 0.0 if trumpts_active else -80.0)
+	AudioServer.set_bus_volume_db(trumpets_index, 0.0 if enabledChannels[Channel.TRUMPETS_ACTIVE] else -80.0)
 	# kazoo bus
 	var kazoo_index = AudioServer.get_bus_index("KazooBus")
-	AudioServer.set_bus_volume_db(kazoo_index, 0.0 if kazoo_active else -80.0)
+	AudioServer.set_bus_volume_db(kazoo_index, 0.0 if enabledChannels[Channel.KAZOO_ACTIVE] else -80.0)

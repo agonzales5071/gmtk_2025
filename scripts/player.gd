@@ -16,6 +16,7 @@ var HP = 100
 var weapons : Array[Weapon] = [null, null, null, null]
 @onready
 var weaponsPlacement: Array[Node2D] = [$Slot0, $Slot1, $Slot2, $Slot3]
+@onready var audio_manager: AudioManager = $AudioManager
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var maxHP = HP
@@ -31,9 +32,13 @@ var invincible = false
 
 func GiveWeapon(weapon : Weapon, slot : int) -> void:
 	assert(slot < 4)
+	var oldWeapon = weaponsPlacement[slot].get_child(0)
+	if oldWeapon:
+		weaponsPlacement[slot].remove_child(oldWeapon)
 	var dupeWeapon = weapon.duplicate()
 	weaponsPlacement[slot].add_child(dupeWeapon)
 	weapons[slot] = dupeWeapon
+	audio_manager.UpdateForWeapons(weapons)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
