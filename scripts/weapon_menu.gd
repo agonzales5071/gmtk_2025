@@ -38,6 +38,8 @@ func _on_confirm_button_pressed() -> void:
 	var selectedNew := new_weapons_ui[0].button_group.get_pressed_button() as WeaponButton
 	var selectedOld := old_weapons_ui[0].button_group.get_pressed_button() as WeaponButton
 	if selectedNew and selectedOld:
+		selectedNew.button_pressed = false
+		selectedOld.button_pressed = false
 		if selectedNew.weapon:
 			player.GiveWeapon(selectedNew.weapon, selectedOld.idx)
 	get_tree().paused = false
