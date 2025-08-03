@@ -15,6 +15,9 @@ var weapons : Array[Weapon] = [null, null, null, null]
 @onready
 var weaponsPlacement: Array[Node2D] = [$Slot0, $Slot1, $Slot2, $Slot3]
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var maxHP = HP
+
 @export
 var timeToShot = 0.5
 var lastShot : int = 0
@@ -30,6 +33,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if IsDead():
+		return
 	Move()
 	CheckShoot()
 
@@ -56,6 +61,8 @@ func CheckShoot() -> void:
 			projectile.ProjectileInit(self)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if (IsDead()):
+		return
 	if (body is Enemy):
 		hit.emit()
 		var enemy = body as Enemy
@@ -65,4 +72,14 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			if HP <= 0:
 				print("DED")
 				$AudioManager.play_sound_effect("death")
+				animated_sprite_2d.visible = false
+				await get_tree().create_timer(3.0).timeout
 				get_tree().reload_current_scene()
+
+func GetMaxHP() -> int:
+	return maxHP
+func GetHP() -> int:
+	return HP
+
+func IsDead() -> bool:
+	return HP <= 0
