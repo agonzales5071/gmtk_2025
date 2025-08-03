@@ -19,3 +19,5 @@ sprite_frames = SubResource("SpriteFrames_ew60s")
 script = ExtResource("1_xu8x0")
 thumbnail = ExtResource("1_sn2o2")
 metadata/_custom_type_script = "uid://bwhc5xjqg0vvg"
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

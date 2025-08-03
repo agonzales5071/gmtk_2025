@@ -19,4 +19,16 @@ func _process(delta: float) -> void:
 	pass
 
 func Shoot() -> Node:
+	var animation_name = "fire"
+	if sprite_frames.has_animation(animation_name):
+		print("Animation '" + animation_name + "' exists!")
+		play(animation_name)
+	else:
+		print("noexist")
+		
 	return projectile.instantiate()
+
+
+func _on_animation_finished() -> void:
+	play("default")
+	pass # Replace with function body.

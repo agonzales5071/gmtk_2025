@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b32uv2h3eqyfn"
-path="res://.godot/imported/Guitar.PNG-f220f9aa8e7af12e8a17c9a00d0e0833.ctex"
+uid="uid://d4mhmlm2bik12"
+path="res://.godot/imported/Songbird.PNG-47568dfbae88d2a62aa577bd5bf36760.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteSheets/Guitar.PNG"
-dest_files=["res://.godot/imported/Guitar.PNG-f220f9aa8e7af12e8a17c9a00d0e0833.ctex"]
+source_file="res://SpriteSheets/Songbird.PNG"
+dest_files=["res://.godot/imported/Songbird.PNG-47568dfbae88d2a62aa577bd5bf36760.ctex"]
 
 [params]
 

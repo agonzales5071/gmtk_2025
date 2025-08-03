@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b32uv2h3eqyfn"
-path="res://.godot/imported/Guitar.PNG-f220f9aa8e7af12e8a17c9a00d0e0833.ctex"
+uid="uid://cbr3h54ilbb06"
+path="res://.godot/imported/Drums.PNG-2816f9dce576b32836c707773951dd28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteSheets/Guitar.PNG"
-dest_files=["res://.godot/imported/Guitar.PNG-f220f9aa8e7af12e8a17c9a00d0e0833.ctex"]
+source_file="res://SpriteSheets/Drums.PNG"
+dest_files=["res://.godot/imported/Drums.PNG-2816f9dce576b32836c707773951dd28.ctex"]
 
 [params]
 
