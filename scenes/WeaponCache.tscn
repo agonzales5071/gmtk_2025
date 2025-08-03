@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://o4tuo0pyjdav"]
+[gd_scene load_steps=32 format=3 uid="uid://o4tuo0pyjdav"]
 
 [ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="1_fmraw"]
 [ext_resource type="Script" uid="uid://ccuhawsm7jbd3" path="res://Weapon/Scripts/weapon_cache.gd" id="1_g1w8m"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ddm6b41w3dogx" path="res://SpriteSheets/Trumpets.PNG" id="9_d3jwa"]
 [ext_resource type="Texture2D" uid="uid://rtkbbjgsv6x8" path="res://SpriteSheets/Basses.PNG" id="12_01hvd"]
 [ext_resource type="PackedScene" uid="uid://doxnown1k2t2f" path="res://Projectiles/Scene/PianoNote.tscn" id="15_01hvd"]
+[ext_resource type="Texture2D" uid="uid://djawtdkugy2jf" path="res://SpriteSheets/Piano.PNG" id="15_ysens"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3jwa"]
 atlas = ExtResource("3_trh6f")
@@ -97,19 +98,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yn0sg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwpws"]
 atlas = ExtResource("12_01hvd")
 region = Rect2(0, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nix6u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn0sg"]
 atlas = ExtResource("12_01hvd")
 region = Rect2(320, 0, 320, 320)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3kfg0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nix6u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yn0sg")
+"texture": SubResource("AtlasTexture_cwpws")
 }],
 "loop": true,
 "name": &"default",
@@ -117,7 +118,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_nix6u")
+"texture": SubResource("AtlasTexture_yn0sg")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dee2r"]
+atlas = ExtResource("15_ysens")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_716js"]
+atlas = ExtResource("15_ysens")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kfg0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dee2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_716js")
 }],
 "loop": false,
 "name": &"fire",
@@ -151,7 +179,8 @@ thumbnail = ExtResource("8_invvq")
 audioChannel = 4
 
 [node name="BasicWeaponRocket" parent="." instance=ExtResource("1_fmraw")]
-sprite_frames = SubResource("SpriteFrames_3kfg0")
+sprite_frames = SubResource("SpriteFrames_nix6u")
+animation = &"fire"
 autoplay = "default"
 projectile = ExtResource("4_vwrdq")
 thumbnail = ExtResource("6_vwrdq")
@@ -159,6 +188,7 @@ audioChannel = 1
 
 [node name="BasicWeaponPiano" parent="." instance=ExtResource("1_fmraw")]
 sprite_frames = SubResource("SpriteFrames_3kfg0")
+animation = &"fire"
 autoplay = "default"
 projectile = ExtResource("15_01hvd")
 thumbnail = ExtResource("6_vwrdq")
