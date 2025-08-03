@@ -8,10 +8,6 @@ func _ready():
 	update()
 	
 func update():
-	print("player exp = " + str(player.getEXP()))
-
-		#print("nextlevel = " + str(player.getNextLevelEXP()))
-		
 	value = player.getEXP() 
 	min_value = player.getLevel()*player.getLevel()
 	max_value = player.getNextLevelEXP()
