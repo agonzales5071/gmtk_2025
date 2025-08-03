@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://de3lvg2f4awc5"]
+[gd_scene load_steps=18 format=4 uid="uid://de3lvg2f4awc5"]
 
 [ext_resource type="PackedScene" uid="uid://dl2og8ea8mv4g" path="res://scenes/GameManager.tscn" id="1_71j4m"]
 [ext_resource type="Texture2D" uid="uid://bogmfw4c122ng" path="res://SpriteSheets/Times.png" id="1_jhx03"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0sco5uhseyh" path="res://Enemies/CymbalGorilla.tscn" id="5_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bg37c88lxm4to" path="res://scenes/AudioManager.tscn" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bgkc5f7hr7tx1" path="res://scenes/HUD.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://c1ureswoibxdf" path="res://Enemies/Elephant.tscn" id="7_o8fc1"]
 [ext_resource type="PackedScene" uid="uid://dlmqaorepl0hf" path="res://scenes/WeaponMenu.tscn" id="7_q5onr"]
 [ext_resource type="PackedScene" uid="uid://o4tuo0pyjdav" path="res://scenes/WeaponCache.tscn" id="8_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://dgk742bdl0e8u" path="res://scenes/Pause_Menu.tscn" id="11_e3hyu"]
@@ -55,7 +56,7 @@ tile_set = SubResource("TileSet_xo05s")
 
 [node name="GameManager" parent="." instance=ExtResource("1_71j4m")]
 unique_name_in_owner = true
-enemies = Array[PackedScene]([ExtResource("3_4wyf3"), ExtResource("3_i7141"), ExtResource("4_4mrxx"), ExtResource("5_q5onr")])
+enemies = Array[PackedScene]([ExtResource("3_4wyf3"), ExtResource("3_i7141"), ExtResource("4_4mrxx"), ExtResource("5_q5onr"), ExtResource("7_o8fc1")])
 
 [node name="WeaponCache" parent="." instance=ExtResource("8_7r4gi")]
 unique_name_in_owner = true

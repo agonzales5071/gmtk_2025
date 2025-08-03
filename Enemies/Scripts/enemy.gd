@@ -5,7 +5,7 @@ class_name Enemy
 @export var SPEED = 300.0
 @export var damage = 20
 @export var HP = 20
-@export var InitialHP = HP
+var InitialHP = HP
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 @onready var gm = get_tree().get_nodes_in_group("GameManager")[0]
 @onready var animated_sprite = $AnimatedSprite2D
@@ -31,7 +31,7 @@ func TakeDamage(amount: float) -> void:
 		queue_free()
 
 func GetSpeed() -> float:
-	return SPEED * speedDownMultiplier
+	return SPEED * min(speedDownMultiplier, 5)
 
 func _ready() -> void:
 	health_bar.min_value = 0
