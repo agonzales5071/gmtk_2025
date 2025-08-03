@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgk742bdl0e8u"]
+
+[ext_resource type="Script" uid="uid://dol5jqypm74mm" path="res://scenes/pause_menu.gd" id="1_6qyv5"]
+[ext_resource type="FontFile" uid="uid://cacpuwthx8cp4" path="res://fonts/Nordic Metal Band.otf" id="4_a0vcy"]
+[ext_resource type="FontFile" uid="uid://cgomdfey44705" path="res://fonts/GrapeSoda.ttf" id="7_bvxtu"]
+[ext_resource type="PackedScene" uid="uid://pfbhp7vxtr3e" path="res://scenes/volumeControl.tscn" id="8_q7hon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5onr"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 0.721569)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.670588, 0.670588, 0.670588, 0.498039)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 6
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6qyv5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -361.0
+offset_right = 361.0
+offset_bottom = 126.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_a0vcy")
+theme_override_font_sizes/font_size = 120
+text = "one man band"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/Label"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 145.0
+offset_right = 779.0
+offset_bottom = 230.0
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_a0vcy")
+theme_override_font_sizes/font_size = 80
+text = "battle for the airwaves"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+z_index = 11
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = 94.0
+offset_right = 52.5
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_bvxtu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q5onr")
+text = "Continue"
+
+[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_bvxtu")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_oa1go")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q5onr")
+text = "Exit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -48.0
+offset_right = 229.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Master2" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer3"]
+layout_direction = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_bvxtu")
+theme_override_font_sizes/font_size = 28
+text = "Master"
+horizontal_alignment = 1
+
+[node name="Master" parent="CanvasLayer/HBoxContainer/VBoxContainer3" instance=ExtResource("8_q7hon")]
+layout_direction = 2
+layout_mode = 2
+bus_name = "Master"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Music2" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer4"]
+layout_direction = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_bvxtu")
+theme_override_font_sizes/font_size = 28
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Music" parent="CanvasLayer/HBoxContainer/VBoxContainer4" instance=ExtResource("8_q7hon")]
+layout_direction = 2
+layout_mode = 2
+bus_name = "Music"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="SFX2" type="Label" parent="CanvasLayer/HBoxContainer/VBoxContainer5"]
+layout_direction = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_bvxtu")
+theme_override_font_sizes/font_size = 28
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFX" parent="CanvasLayer/HBoxContainer/VBoxContainer5" instance=ExtResource("8_q7hon")]
+layout_direction = 2
+layout_mode = 2
+bus_name = "SFX"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Continue" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://de3lvg2f4awc5"]
+[gd_scene load_steps=12 format=3 uid="uid://de3lvg2f4awc5"]
 
 [ext_resource type="PackedScene" uid="uid://dl2og8ea8mv4g" path="res://scenes/GameManager.tscn" id="1_71j4m"]
 [ext_resource type="PackedScene" uid="uid://beemr4p4xdgvr" path="res://scenes/Player.tscn" id="1_nnsk1"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bg37c88lxm4to" path="res://scenes/AudioManager.tscn" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bgkc5f7hr7tx1" path="res://scenes/HUD.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://o4tuo0pyjdav" path="res://scenes/WeaponCache.tscn" id="8_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://dgk742bdl0e8u" path="res://scenes/Pause_Menu.tscn" id="11_e3hyu"]
 
 [node name="World" type="Node2D"]
 
@@ -20,11 +21,17 @@ enemies = Array[PackedScene]([ExtResource("3_4wyf3"), ExtResource("3_i7141"), Ex
 [node name="Player" parent="." node_paths=PackedStringArray("weapons") groups=["Player"] instance=ExtResource("1_nnsk1")]
 unique_name_in_owner = true
 position = Vector2(11, 28)
-weapons = [NodePath(""), null, null, null]
+weapons = [null, null, null, null]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.25, 0.25)
 position_smoothing_speed = 0.0
+
+[node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("11_e3hyu")]
+offset_left = -11.0
+offset_top = -28.0
+offset_right = 29.0
+offset_bottom = 12.0
 
 [node name="AudioManager" parent="Player" instance=ExtResource("6_e3hyu")]
 
