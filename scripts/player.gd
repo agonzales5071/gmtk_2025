@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 func Move() -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("input_left", "input_right", "input_up", "input_down")
 	if direction:
 		velocity = direction * SPEED
 	else:

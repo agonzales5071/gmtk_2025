@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cdbn8n6j2dqlv"]
 
 [ext_resource type="PackedScene" uid="uid://dmencs02fgeg6" path="res://Projectiles/Scene/BasicProjectile.tscn" id="1_ymq0k"]
-[ext_resource type="Script" uid="uid://bh1shragighqn" path="res://rocket.gd" id="2_5ct60"]
+[ext_resource type="Script" uid="uid://bh1shragighqn" path="res://Projectiles/Scripts/rocket.gd" id="2_5ct60"]
 [ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="3_1icdt"]
 [ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="3_6cdhs"]
 

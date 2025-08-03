@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	bounce_timer -= delta
 
 	var direction = position.direction_to(player.position)
-	var horizontal_velocity = direction.x * SPEED
+	var horizontal_velocity = direction.x * GetSpeed()
 
 	if bounce_timer <= 0.0:
 		# 1. Measure horizontal distance to player

@@ -2,6 +2,8 @@ extends BasicProjectile
 
 @export var arcHeight : float = 400
 @export var timeSplat : float = 2
+@export var slowAmount : float = 0.5
+@export var slowDuration : float = 1.0
 
 var startPos : Vector2
 var endPos : Vector2
@@ -39,4 +41,8 @@ func _process(delta: float) -> void:
 func OnTimeout() -> void:
 	goo_projectile.visible = false
 	goo_splat.visible = true
+	var bodies = area_2d.get_overlapping_bodies()
+	for body in bodies:
+		if body is Enemy:
+			body.GiveSlow(slowAmount, slowDuration)
 	get_tree().create_timer(timeSplat).timeout.connect(func() -> void: queue_free())
