@@ -32,9 +32,9 @@ var invincible = false
 
 func GiveWeapon(weapon : Weapon, slot : int) -> void:
 	assert(slot < 4)
-	var oldWeapon = weaponsPlacement[slot].get_child(0)
+	var oldWeapon = weaponsPlacement[slot].get_children()
 	if oldWeapon:
-		weaponsPlacement[slot].remove_child(oldWeapon)
+		weaponsPlacement[slot].remove_child(oldWeapon[0])
 	var dupeWeapon = weapon.duplicate()
 	weaponsPlacement[slot].add_child(dupeWeapon)
 	weapons[slot] = dupeWeapon

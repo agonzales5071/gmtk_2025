@@ -68,6 +68,7 @@ func _input(event):
 	update_audio_busses()
 		
 func update_audio_busses():
+	AudioServer.lock()
 	# bass bus
 	var bass_index = AudioServer.get_bus_index("BassBus")
 	AudioServer.set_bus_volume_db(bass_index, 0.0 if enabledChannels[Channel.BASS_ACTIVE] else -80.0)
@@ -86,3 +87,4 @@ func update_audio_busses():
 	# kazoo bus
 	var kazoo_index = AudioServer.get_bus_index("KazooBus")
 	AudioServer.set_bus_volume_db(kazoo_index, 0.0 if enabledChannels[Channel.KAZOO_ACTIVE] else -80.0)
+	AudioServer.unlock()
