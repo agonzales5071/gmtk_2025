@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://o4tuo0pyjdav"]
+[gd_scene load_steps=39 format=3 uid="uid://o4tuo0pyjdav"]
 
 [ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="1_fmraw"]
 [ext_resource type="Script" uid="uid://ccuhawsm7jbd3" path="res://Weapon/Scripts/weapon_cache.gd" id="1_g1w8m"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://doxnown1k2t2f" path="res://Projectiles/Scene/PianoNote.tscn" id="15_01hvd"]
 [ext_resource type="Texture2D" uid="uid://djawtdkugy2jf" path="res://SpriteSheets/Pianos.PNG" id="15_ysens"]
 [ext_resource type="Texture2D" uid="uid://dlhi04qmsixa5" path="res://SpriteSheets/Piano.PNG" id="17_fx0ul"]
+[ext_resource type="Texture2D" uid="uid://by7xc3hfs76vo" path="res://SpriteSheets/Guitars.PNG" id="18_cwpws"]
+[ext_resource type="PackedScene" uid="uid://dg2vn1awaxmgg" path="res://Projectiles/Scene/GuitarBeam.tscn" id="18_qi5fa"]
+[ext_resource type="Texture2D" uid="uid://b32uv2h3eqyfn" path="res://SpriteSheets/Guitar.PNG" id="19_cwpws"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3jwa"]
 atlas = ExtResource("3_trh6f")
@@ -153,6 +156,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nix6u"]
+atlas = ExtResource("18_cwpws")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eshxf"]
+atlas = ExtResource("18_cwpws")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55q7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nix6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eshxf")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 5.0
+}]
+
 [node name="WeaponCache" type="Node2D"]
 visible = false
 script = ExtResource("1_g1w8m")
@@ -188,8 +218,7 @@ animation = &"fire"
 autoplay = "default"
 projectile = ExtResource("4_vwrdq")
 thumbnail = ExtResource("6_vwrdq")
-weaponName = "  Guitar  "
-audioChannel = 1
+weaponName = "   Bass   "
 
 [node name="BasicWeaponPiano" parent="." instance=ExtResource("1_fmraw")]
 sprite_frames = SubResource("SpriteFrames_3kfg0")
@@ -199,3 +228,12 @@ projectile = ExtResource("15_01hvd")
 thumbnail = ExtResource("17_fx0ul")
 weaponName = "  Piano  "
 audioChannel = 2
+
+[node name="BasicWeaponGuitar" parent="." instance=ExtResource("1_fmraw")]
+sprite_frames = SubResource("SpriteFrames_55q7t")
+animation = &"fire"
+autoplay = "default"
+projectile = ExtResource("18_qi5fa")
+thumbnail = ExtResource("19_cwpws")
+weaponName = " Guitar "
+audioChannel = 1

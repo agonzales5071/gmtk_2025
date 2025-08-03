@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg2vn1awaxmgg"]
+
+[ext_resource type="Script" uid="uid://bkfcifv7qhgnx" path="res://Projectiles/Scripts/guitar_beam.gd" id="1_rr0yp"]
+[ext_resource type="Texture2D" uid="uid://vijrvhst0l51" path="res://SpriteSheets/lightning.png" id="2_puxxm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fr53n"]
+radius = 48.0
+height = 1872.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr53n"]
+atlas = ExtResource("2_puxxm")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hs38"]
+atlas = ExtResource("2_puxxm")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hs38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr53n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hs38")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GuitarBeam" type="Node2D"]
+scale = Vector2(4.21484, 4.13554)
+script = ExtResource("1_rr0yp")
+damage = 15
+metadata/_custom_type_script = "uid://d15u5ebqfbrqf"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(936, 0)
+rotation = 1.5708
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("CapsuleShape2D_fr53n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.8)
+scale = Vector2(0.403147, 5.82045)
+sprite_frames = SubResource("SpriteFrames_8hs38")
+autoplay = "default"
+
+[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="Node2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
