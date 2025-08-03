@@ -26,8 +26,6 @@ func update_score(score):
 	
 func update_level(level, player : Player):
 	$EXPBar/LevelLabel.text = "Level " + str(level)
-	#update expbar max
-	#$EXPBar.max_value = (player.getNextLevelEXP()-player.getLevelEXP())
 	
 func update_score_timer(time):
 	var sec = time % 60
