@@ -6,6 +6,7 @@ class_name BasicProjectile
 var SPEED = 1500.0
 @export
 var damage = 20
+@export var slowAmount : float = 0.5
 
 var direction : Vector2
 

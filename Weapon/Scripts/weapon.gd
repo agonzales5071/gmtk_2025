@@ -30,6 +30,7 @@ func Shoot() -> Node:
 		play(animation_name)
 	var projectileRand = projectileRandomized.duplicate()
 	(projectileRand as BasicProjectile).damage += buff
+	(projectileRand as BasicProjectile).slowAmount += buff*100
 	return projectileRand
 
 

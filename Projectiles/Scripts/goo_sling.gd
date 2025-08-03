@@ -2,7 +2,6 @@ extends BasicProjectile
 
 @export var arcHeight : float = 400
 @export var timeSplat : float = 2
-@export var slowAmount : float = 0.5
 @export var slowDuration : float = 1.0
 
 var startPos : Vector2
