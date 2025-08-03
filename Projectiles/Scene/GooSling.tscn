@@ -1,17 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://duf8ds6hwxvey"]
 
-[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="2_lsiay"]
-[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_trmtc"]
+[ext_resource type="Texture2D" uid="uid://bqkg2o3xol7t1" path="res://SpriteSheets/spit.png" id="2_lsiay"]
 [ext_resource type="Script" uid="uid://h83jxvy61hxp" path="res://Projectiles/Scripts/goo_sling.gd" id="2_w1f1q"]
+[ext_resource type="Texture2D" uid="uid://sxienyturvvg" path="res://SpriteSheets/spitsplat.png" id="3_r82wa"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_r82wa"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_143xt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_trmtc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_lsiay")
+"texture": ExtResource("3_r82wa")
 }],
 "loop": true,
 "name": &"default",
@@ -33,8 +30,7 @@ texture = ExtResource("2_lsiay")
 visible = false
 modulate = Color(0.23, 0.23, 0.23, 0.611765)
 scale = Vector2(4.21219, 4.21219)
-sprite_frames = SubResource("SpriteFrames_r82wa")
-frame_progress = 0.880466
+sprite_frames = SubResource("SpriteFrames_143xt")
 
 [node name="Area2D" type="Area2D" parent="."]
 

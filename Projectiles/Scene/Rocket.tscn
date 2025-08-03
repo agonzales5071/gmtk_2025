@@ -2,20 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://dmencs02fgeg6" path="res://Projectiles/Scene/BasicProjectile.tscn" id="1_ymq0k"]
 [ext_resource type="Script" uid="uid://bh1shragighqn" path="res://Projectiles/Scripts/rocket.gd" id="2_5ct60"]
-[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="3_1icdt"]
-[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="3_6cdhs"]
+[ext_resource type="Texture2D" uid="uid://eix4fw4x7eh2" path="res://SpriteSheets/DrumBeat.png" id="3_4ijs4"]
+[ext_resource type="Texture2D" uid="uid://bj1rohpuxij6j" path="res://SpriteSheets/rocketnote.png" id="3_trxgj"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_at4bf"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_trxgj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1icdt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_6cdhs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1icdt")
+"texture": ExtResource("3_4ijs4")
 }],
 "loop": false,
 "name": &"default",
@@ -35,6 +29,8 @@ damage = 40
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(1, 0.917647, 0.211765, 1)
+texture = ExtResource("3_trxgj")
+flip_v = true
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 visible = false
@@ -44,9 +40,7 @@ visible = false
 [node name="ExplosionSprite" type="AnimatedSprite2D" parent="Explosion" index="0"]
 visible = false
 modulate = Color(0.152941, 0.12549, 1, 1)
-sprite_frames = SubResource("SpriteFrames_at4bf")
-frame = 2
-frame_progress = 1.0
+sprite_frames = SubResource("SpriteFrames_trxgj")
 
 [node name="ExplosionAOE" type="CollisionShape2D" parent="Explosion" index="1"]
 visible = false

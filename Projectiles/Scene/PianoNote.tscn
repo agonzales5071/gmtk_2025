@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://doxnown1k2t2f"]
 
 [ext_resource type="Script" uid="uid://cc0jbhi073lnu" path="res://Projectiles/Scripts/piano_note.gd" id="1_jvnyv"]
-[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="2_6dexf"]
+[ext_resource type="Texture2D" uid="uid://dlb1o5eg3fnvd" path="res://SpriteSheets/doublenote.png" id="2_jvnyv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lephw"]
 radius = 34.0
@@ -17,7 +17,7 @@ metadata/_custom_type_script = "uid://ddy76a110lucs"
 modulate = Color(1, 1, 1, 0.780392)
 position = Vector2(0, 2.00001)
 scale = Vector2(0.5, 2)
-texture = ExtResource("2_6dexf")
+texture = ExtResource("2_jvnyv")
 
 [node name="Area2D" type="Area2D" parent="."]
 
