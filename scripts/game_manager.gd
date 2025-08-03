@@ -40,6 +40,7 @@ func new_game():
 	score = 0
 	time = 0
 	%HUD.update_score_timer(score)
+	%HUD.update_level(1)
 	#%HUD.show_message("Get Ready")
 	#$Player.start($StartPosition.position)
 	%StartTimer.start()

@@ -1,6 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgkc5f7hr7tx1"]
+[gd_scene load_steps=10 format=3 uid="uid://bgkc5f7hr7tx1"]
 
 [ext_resource type="Script" uid="uid://d3p4nbtvbxd60" path="res://scripts/hud.gd" id="1_qpvh6"]
+[ext_resource type="Script" uid="uid://ctnl8ha1rap47" path="res://scripts/hp_bar.gd" id="2_fls4u"]
+[ext_resource type="FontFile" uid="uid://cgomdfey44705" path="res://fonts/GrapeSoda.ttf" id="3_7hsmw"]
+[ext_resource type="Script" uid="uid://darx0k26m6uk7" path="res://scripts/exp_bar.gd" id="3_nysna"]
+[ext_resource type="Script" uid="uid://cmdfr3qw5a7wm" path="res://scripts/level_label.gd" id="4_nysna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fls4u"]
+bg_color = Color(0.678277, 0, 0.0396536, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpvh6"]
+bg_color = Color(0.0964704, 0.431028, 4.81307e-07, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1etfg"]
+bg_color = Color(0.552939, 0.61073, 0.644298, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nysna"]
+bg_color = Color(0.210294, 0.658339, 0.794628, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_qpvh6")
@@ -37,5 +69,38 @@ size_flags_horizontal = 4
 autowrap_mode = 2
 
 [node name="MessageTimer" type="Timer" parent="."]
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = 363.0
+offset_top = 8.0
+offset_right = 591.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_fls4u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qpvh6")
+show_percentage = false
+script = ExtResource("2_fls4u")
+
+[node name="EXPBar" type="ProgressBar" parent="."]
+offset_left = 644.0
+offset_top = 8.0
+offset_right = 872.0
+offset_bottom = 35.0
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_1etfg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nysna")
+max_value = 1.0
+script = ExtResource("3_nysna")
+
+[node name="LevelLabel" type="Label" parent="EXPBar"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = -4.0
+offset_right = 110.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("3_7hsmw")
+theme_override_font_sizes/font_size = 31
+text = "Level"
+script = ExtResource("4_nysna")
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

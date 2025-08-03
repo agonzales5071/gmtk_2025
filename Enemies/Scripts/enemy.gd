@@ -17,6 +17,7 @@ func TakeDamage(amount: float) -> void:
 	HP -= amount
 	if (HP <= 0):
 		addToScore()
+		addToEXP()
 		queue_free()
 
 func _process(delta: float) -> void:
@@ -34,3 +35,6 @@ func _physics_process(delta: float) -> void:
 
 func addToScore() -> void:
 	gm.increase_score(InitialHP)
+
+func addToEXP() -> void:
+	player.addEXP()

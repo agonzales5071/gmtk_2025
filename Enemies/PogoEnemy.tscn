@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba25e0vgqcnld"]
+[gd_scene load_steps=6 format=3 uid="uid://ba25e0vgqcnld"]
 
 [ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://Enemies/Enemy.tscn" id="1_nwkrn"]
-[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_acht4"]
 [ext_resource type="Script" uid="uid://n8aogmj72w03" path="res://Enemies/Scripts/pogo_enemy.gd" id="2_lvkdj"]
+[ext_resource type="Texture2D" uid="uid://be0f1ijtwmbbr" path="res://SpriteSheets/Cello pogo.png" id="3_1lbwx"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lvkdj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvcrf"]
+atlas = ExtResource("3_1lbwx")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_plel3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_acht4")
+"texture": SubResource("AtlasTexture_jvcrf")
 }],
 "loop": true,
 "name": &"default",
@@ -24,4 +28,4 @@ APPROACH_MAX = 0.3
 APPROACH_DISTANCE = 400.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_lvkdj")
+sprite_frames = SubResource("SpriteFrames_plel3")

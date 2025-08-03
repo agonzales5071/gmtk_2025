@@ -2,6 +2,8 @@ extends CanvasLayer
 
 # Notifies `Main` node that the button has been pressed
 signal start_game
+# Called when the node enters the scene tree for the first time.
+@onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 func show_message(text):
 	$Message.text = text
@@ -21,6 +23,9 @@ func show_game_over():
 	
 func update_score(score):
 	$ScoreLabel.text = "Score: " + str(score)
+	
+func update_level(level):
+	$EXPBar/LevelLabel.text = "Level " + str(level)
 	
 func update_score_timer(time):
 	var sec = time % 60
@@ -43,8 +48,9 @@ func _on_start_button_pressed():
 func _on_message_timer_timeout():
 	$Message.hide()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready():
+	
+	player.level_up.connect(update_level)
 	pass # Replace with function body.
 
 

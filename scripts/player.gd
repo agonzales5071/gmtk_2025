@@ -3,6 +3,8 @@ extends CharacterBody2D
 class_name Player
 
 signal hit
+signal level_up
+signal exp_up
 
 @export_range(0, 1500000, 10000, "or_greater")
 var SPEED = 1500.0
@@ -17,6 +19,8 @@ var weaponsPlacement: Array[Node2D] = [$Slot0, $Slot1, $Slot2, $Slot3]
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var maxHP = HP
+@onready var level = 1
+@onready var exp = 0
 
 @export
 var timeToShot = 0.5
@@ -36,6 +40,18 @@ func _ready() -> void:
 	GiveWeapon(weapon_cache[0], 0);
 	GiveWeapon(weapon_cache[1], 1);
 	pass
+	
+func level_up_player() -> void:
+	#callLevelUpMenu
+	level += 1
+	level_up.emit(level)
+	pass
+	
+func addEXP() -> void:
+	exp += 1
+	exp_up.emit()
+	if(exp == level*level): #exponential leveling
+		level_up_player()
 
 func _process(delta: float) -> void:
 	if IsDead():
@@ -69,13 +85,11 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if (IsDead()):
 		return
 	if (body is Enemy):
-		hit.emit()
 		var enemy = body as Enemy
 		if (!invincible):
 			HP -= enemy.GiveDamage()
-			print("HP: ", HP)
+			hit.emit()
 			if HP <= 0:
-				print("DED")
 				$AudioManager.play_sound_effect("death")
 				animated_sprite_2d.visible = false
 				await get_tree().create_timer(3.0).timeout
@@ -85,6 +99,18 @@ func GetMaxHP() -> int:
 	return maxHP
 func GetHP() -> int:
 	return HP
+
+func getLevel() -> int:
+	return level
+
+func getEXP() -> int:
+	return exp
+	
+func getLevelEXP() -> int:
+	return level^2
+
+func getNextLevelEXP() -> int:
+	return (level+1)^2
 
 func IsDead() -> bool:
 	return HP <= 0
