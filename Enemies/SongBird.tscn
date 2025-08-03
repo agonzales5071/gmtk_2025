@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvr81v5w7l1ts"]
 
 [ext_resource type="PackedScene" uid="uid://bl62ho2m0jkt8" path="res://Enemies/Enemy.tscn" id="1_cde8x"]
-[ext_resource type="Texture2D" uid="uid://dr5852bh8vjdh" path="res://SpriteSheets/birb.png" id="2_niyco"]
 [ext_resource type="Script" uid="uid://cqdabj4eu50ul" path="res://Enemies/Scripts/songbird.gd" id="2_xluqx"]
+[ext_resource type="Texture2D" uid="uid://d4mhmlm2bik12" path="res://SpriteSheets/Songbird.PNG" id="3_nryk4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00swf"]
-atlas = ExtResource("2_niyco")
+[sub_resource type="AtlasTexture" id="AtlasTexture_osneo"]
+atlas = ExtResource("3_nryk4")
 region = Rect2(0, 0, 320, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k2pji"]
-atlas = ExtResource("2_niyco")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb84c"]
+atlas = ExtResource("3_nryk4")
 region = Rect2(320, 0, 320, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pltva"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00swf")
+"texture": SubResource("AtlasTexture_osneo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k2pji")
+"texture": SubResource("AtlasTexture_qb84c")
 }],
 "loop": true,
 "name": &"default",
