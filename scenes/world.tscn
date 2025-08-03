@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0sco5uhseyh" path="res://Enemies/CymbalGorilla.tscn" id="5_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bg37c88lxm4to" path="res://scenes/AudioManager.tscn" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bgkc5f7hr7tx1" path="res://scenes/HUD.tscn" id="6_qfnet"]
-[ext_resource type="PackedScene" path="res://scenes/WeaponCache.tscn" id="8_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://o4tuo0pyjdav" path="res://scenes/WeaponCache.tscn" id="8_7r4gi"]
 
 [node name="World" type="Node2D"]
 

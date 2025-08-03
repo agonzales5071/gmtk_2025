@@ -33,4 +33,4 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func addToScore() -> void:
-	gm.increase_score(HP)
+	gm.increase_score(InitialHP)
