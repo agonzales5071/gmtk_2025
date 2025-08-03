@@ -16,7 +16,7 @@ func UpdateTarget() -> void:
 	var distJump = min(maxDistJump, startPos.distance_to(player.global_position))
 	endPos = startPos + startPos.direction_to(player.global_position) * distJump
 	airTime = startPos.distance_to(endPos)/SPEED
-	time_in_flight = get_tree().create_timer(airTime)
+	time_in_flight = get_tree().create_timer(airTime, false)
 	time_in_flight.timeout.connect(UpdateTarget)
 
 func _process(delta: float) -> void:

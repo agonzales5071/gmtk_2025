@@ -174,39 +174,5 @@ layout_direction = 2
 layout_mode = 2
 bus_name = "Master"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="Music2" type="Label" parent="HBoxContainer/VBoxContainer4"]
-layout_direction = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_oa1go")
-theme_override_font_sizes/font_size = 28
-text = "Music"
-horizontal_alignment = 1
-
-[node name="Music" parent="HBoxContainer/VBoxContainer4" instance=ExtResource("8_tbmy8")]
-layout_direction = 2
-layout_mode = 2
-bus_name = "Music"
-
-[node name="VBoxContainer5" type="VBoxContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="SFX2" type="Label" parent="HBoxContainer/VBoxContainer5"]
-layout_direction = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_oa1go")
-theme_override_font_sizes/font_size = 28
-text = "SFX"
-horizontal_alignment = 1
-
-[node name="SFX" parent="HBoxContainer/VBoxContainer5" instance=ExtResource("8_tbmy8")]
-layout_direction = 2
-layout_mode = 2
-bus_name = "SFX"
-
 [connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

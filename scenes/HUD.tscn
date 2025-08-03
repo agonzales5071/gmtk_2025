@@ -90,6 +90,7 @@ size_flags_horizontal = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_1etfg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nysna")
 max_value = 1.0
+show_percentage = false
 script = ExtResource("3_nysna")
 
 [node name="LevelLabel" type="Label" parent="EXPBar"]

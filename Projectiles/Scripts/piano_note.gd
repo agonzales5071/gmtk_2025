@@ -12,7 +12,7 @@ func ProjectileInit(player : Player) -> void:
 	var nearestEnemy = GetNearestEnemy()
 	direction = global_position.direction_to(nearestEnemy.global_position)
 	global_rotation = direction.angle()
-	get_tree().create_timer(timeToFly).timeout.connect(func() -> void: queue_free())
+	get_tree().create_timer(timeToFly, false).timeout.connect(func() -> void: queue_free())
 
 func _process(delta: float) -> void:
 	global_position += direction * SPEED * delta

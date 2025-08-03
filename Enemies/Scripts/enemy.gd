@@ -23,7 +23,7 @@ func TakeDamage(amount: float) -> void:
 	HP -= amount
 	health_bar.value = HP
 	heal_bar_visible += 1
-	get_tree().create_timer(heal_bar_time).timeout.connect(\
+	get_tree().create_timer(heal_bar_time, false).timeout.connect(\
 		func() -> void: heal_bar_visible-= 1)
 	if (HP <= 0):
 		addToScore()
@@ -59,5 +59,5 @@ func addToEXP() -> void:
 
 func GiveSlow(multiplier : float, time : float) -> void:
 	speedDownMultiplier *= multiplier
-	get_tree().create_timer(time).timeout.connect(\
+	get_tree().create_timer(time, false).timeout.connect(\
 		func() -> void: speedDownMultiplier /= multiplier)

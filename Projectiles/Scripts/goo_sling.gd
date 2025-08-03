@@ -29,7 +29,7 @@ func ProjectileInit(player : Player) -> void:
 		endPos = Vector2(randf_range(-1000.0, 1000.0), randf_range(-1000.0, 1000.0)) + startPos
 	global_rotation = direction.angle()
 	time_to_splat = startPos.distance_to(endPos) / SPEED
-	time_in_flight = get_tree().create_timer(time_to_splat)
+	time_in_flight = get_tree().create_timer(time_to_splat, false)
 	time_in_flight.timeout.connect(OnTimeout)
 
 func _process(delta: float) -> void:
@@ -45,4 +45,4 @@ func OnTimeout() -> void:
 	for body in bodies:
 		if body is Enemy:
 			body.GiveSlow(slowAmount, slowDuration)
-	get_tree().create_timer(timeSplat).timeout.connect(func() -> void: queue_free())
+	get_tree().create_timer(timeSplat, false).timeout.connect(func() -> void: queue_free())

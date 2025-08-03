@@ -106,7 +106,7 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			if HP <= 0:
 				$AudioManager.play_sound_effect("death")
 				animated_sprite_2d.visible = false
-				await get_tree().create_timer(3.0).timeout
+				await get_tree().create_timer(3.0, false).timeout
 				get_tree().reload_current_scene()
 
 func GetMaxHP() -> int:
