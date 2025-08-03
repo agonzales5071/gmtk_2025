@@ -8,6 +8,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body : Node2D) -> void:
 	if body is Enemy:
 		body.TakeDamage(damage)
+		body.GiveSlow(0.4, 0.2)
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	queue_free()
