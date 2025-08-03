@@ -42,6 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_6qyv5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
 visible = false
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]

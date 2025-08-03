@@ -58,4 +58,5 @@ position = Vector2(93, -173)
 [node name="Slot3" type="Node2D" parent="."]
 position = Vector2(150, -66)
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="body_entered" from="HurtboxListener" to="." method="_on_hurtbox_body_entered"]

@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 signal hit
-signal level_up
+signal level_up(level : float, player : Player)
 signal exp_up
 
 @export_range(0, 1500000, 10000, "or_greater")
@@ -44,7 +44,7 @@ func _ready() -> void:
 func level_up_player() -> void:
 	#callLevelUpMenu
 	level += 1
-	level_up.emit(level)
+	level_up.emit(level, self)
 	pass
 	
 func addEXP() -> void:

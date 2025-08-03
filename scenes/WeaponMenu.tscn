@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlmqaorepl0hf"]
+
+[ext_resource type="Script" uid="uid://c8tubrrnd0cl1" path="res://scripts/weapon_menu.gd" id="1_t8ppo"]
+[ext_resource type="PackedScene" uid="uid://dgk742bdl0e8u" path="res://scenes/Pause_Menu.tscn" id="1_uo0wo"]
+[ext_resource type="FontFile" uid="uid://cacpuwthx8cp4" path="res://fonts/Nordic Metal Band.otf" id="2_038b7"]
+[ext_resource type="ButtonGroup" uid="uid://jtetbk0s8rb" path="res://NewWeaponButtonGroup.tres" id="4_k3fgj"]
+[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="4_t8ppo"]
+[ext_resource type="Script" uid="uid://06qw3l1ycxso" path="res://scripts/weapon_button.gd" id="6_w8fr6"]
+[ext_resource type="ButtonGroup" uid="uid://duji6aomvbb4v" path="res://CurrentWeaponButtonGroup.tres" id="6_wfpn1"]
+
+[node name="WeaponMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_t8ppo")
+emptyIcon = ExtResource("4_t8ppo")
+emptyText = "Empty Slot"
+
+[node name="WeaponMenuControl" parent="." instance=ExtResource("1_uo0wo")]
+script = null
+
+[node name="VSplit" type="VBoxContainer" parent="WeaponMenuControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="WeaponMenuControl/VSplit"]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("2_038b7")
+theme_override_font_sizes/font_size = 80
+text = "Choose a New weapon"
+horizontal_alignment = 1
+
+[node name="NewWeapons" type="HBoxContainer" parent="WeaponMenuControl/VSplit"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="WeaponMenuControl/VSplit/NewWeapons"]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("4_t8ppo")
+toggle_mode = true
+button_group = ExtResource("4_k3fgj")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Button1" type="Button" parent="WeaponMenuControl/VSplit/NewWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_k3fgj")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+idx = 1
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Button2" type="Button" parent="WeaponMenuControl/VSplit/NewWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_k3fgj")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+idx = 2
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Button3" type="Button" parent="WeaponMenuControl/VSplit/NewWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_k3fgj")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+idx = 3
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Label2" type="Label" parent="WeaponMenuControl/VSplit"]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("2_038b7")
+theme_override_font_sizes/font_size = 80
+text = "Current Weapons"
+horizontal_alignment = 1
+
+[node name="CurrentWeapons" type="HBoxContainer" parent="WeaponMenuControl/VSplit"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="WeaponMenuControl/VSplit/CurrentWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("6_wfpn1")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Button1" type="Button" parent="WeaponMenuControl/VSplit/CurrentWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("6_wfpn1")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+idx = 1
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Button2" type="Button" parent="WeaponMenuControl/VSplit/CurrentWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("6_wfpn1")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+idx = 2
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="Button3" type="Button" parent="WeaponMenuControl/VSplit/CurrentWeapons"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("6_wfpn1")
+text = "SampleWeapon"
+icon = ExtResource("4_t8ppo")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("6_w8fr6")
+idx = 3
+metadata/_custom_type_script = "uid://06qw3l1ycxso"
+
+[node name="ConfirmButton" type="Button" parent="WeaponMenuControl/VSplit"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 47
+text = "Confirm"
+
+[connection signal="pressed" from="WeaponMenuControl/VSplit/ConfirmButton" to="." method="_on_confirm_button_pressed"]

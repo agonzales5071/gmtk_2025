@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://o4tuo0pyjdav"]
+[gd_scene load_steps=13 format=3 uid="uid://o4tuo0pyjdav"]
 
 [ext_resource type="PackedScene" uid="uid://bo42lyigx7fct" path="res://Weapon/Scenes/BasicWeapon.tscn" id="1_fmraw"]
+[ext_resource type="Script" uid="uid://ccuhawsm7jbd3" path="res://Weapon/Scripts/weapon_cache.gd" id="1_g1w8m"]
 [ext_resource type="PackedScene" uid="uid://dmencs02fgeg6" path="res://Projectiles/Scene/BasicProjectile.tscn" id="2_m76bf"]
 [ext_resource type="PackedScene" uid="uid://duf8ds6hwxvey" path="res://Projectiles/Scene/GooSling.tscn" id="2_wkvw8"]
 [ext_resource type="PackedScene" uid="uid://yf10mv81444x" path="res://Projectiles/Scene/Thump.tscn" id="3_m76bf"]
 [ext_resource type="Texture2D" uid="uid://b2w6louhsk8uq" path="res://SpriteSheets/Drum.PNG" id="3_vwrdq"]
+[ext_resource type="Texture2D" uid="uid://by1nh3wfac7c5" path="res://SpriteSheets/Kazoo.PNG" id="4_3kfg0"]
 [ext_resource type="PackedScene" uid="uid://cdbn8n6j2dqlv" path="res://Projectiles/Scene/Rocket.tscn" id="4_vwrdq"]
 [ext_resource type="Texture2D" uid="uid://7qva5snldld2" path="res://SpriteSheets/Bass.PNG" id="6_vwrdq"]
+[ext_resource type="Texture2D" uid="uid://bq33knnvkijwr" path="res://SpriteSheets/Trumpet.PNG" id="8_invvq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g1w8m"]
 animations = [{
@@ -32,18 +35,23 @@ animations = [{
 
 [node name="WeaponCache" type="Node2D"]
 visible = false
+script = ExtResource("1_g1w8m")
 
 [node name="BasicWeapon" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("2_m76bf")
+thumbnail = ExtResource("4_3kfg0")
 
 [node name="BasicWeaponThump" parent="." instance=ExtResource("1_fmraw")]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_g1w8m")
 projectile = ExtResource("3_m76bf")
+thumbnail = ExtResource("3_vwrdq")
 
 [node name="BasicWeaponGoo" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("2_wkvw8")
+thumbnail = ExtResource("8_invvq")
 
 [node name="BasicWeaponRocket" parent="." instance=ExtResource("1_fmraw")]
 sprite_frames = SubResource("SpriteFrames_3kfg0")
 projectile = ExtResource("4_vwrdq")
+thumbnail = ExtResource("6_vwrdq")

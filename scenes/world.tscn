@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://de3lvg2f4awc5"]
+[gd_scene load_steps=13 format=3 uid="uid://de3lvg2f4awc5"]
 
 [ext_resource type="PackedScene" uid="uid://dl2og8ea8mv4g" path="res://scenes/GameManager.tscn" id="1_71j4m"]
 [ext_resource type="PackedScene" uid="uid://beemr4p4xdgvr" path="res://scenes/Player.tscn" id="1_nnsk1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cb0sco5uhseyh" path="res://Enemies/CymbalGorilla.tscn" id="5_q5onr"]
 [ext_resource type="PackedScene" uid="uid://bg37c88lxm4to" path="res://scenes/AudioManager.tscn" id="6_e3hyu"]
 [ext_resource type="PackedScene" uid="uid://bgkc5f7hr7tx1" path="res://scenes/HUD.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://dlmqaorepl0hf" path="res://scenes/WeaponMenu.tscn" id="7_q5onr"]
 [ext_resource type="PackedScene" uid="uid://o4tuo0pyjdav" path="res://scenes/WeaponCache.tscn" id="8_7r4gi"]
 [ext_resource type="PackedScene" uid="uid://dgk742bdl0e8u" path="res://scenes/Pause_Menu.tscn" id="11_e3hyu"]
 
@@ -26,6 +27,9 @@ weapons = [null, null, null, null]
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.25, 0.25)
 position_smoothing_speed = 0.0
+
+[node name="WeaponMenu" parent="Player/Camera2D" instance=ExtResource("7_q5onr")]
+layer = 2
 
 [node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("11_e3hyu")]
 offset_left = -11.0
@@ -72,6 +76,7 @@ one_shot = true
 [node name="ScoreTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
+[connection signal="level_up" from="Player" to="Player/Camera2D/WeaponMenu" method="_on_player_level_up"]
 [connection signal="start_game" from="HUD" to="GameManager" method="new_game"]
 [connection signal="timeout" from="StartTimer" to="GameManager" method="_on_start_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="GameManager" method="_on_score_timer_timeout"]
