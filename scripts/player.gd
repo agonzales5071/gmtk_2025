@@ -69,6 +69,16 @@ func Move() -> void:
 	var direction := Input.get_vector("input_left", "input_right", "input_up", "input_down")
 	if direction:
 		velocity = direction * SPEED
+		if direction.x > 0:
+			animated_sprite_2d.play("walking")
+			animated_sprite_2d.flip_h = false
+		elif direction.x < 0:
+			animated_sprite_2d.play("walking")
+			animated_sprite_2d.flip_h = true
+		if(velocity.x == 0):
+			animated_sprite_2d.play("default")
+			
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y, 0, SPEED)
