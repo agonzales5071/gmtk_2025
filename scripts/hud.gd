@@ -24,7 +24,7 @@ func show_game_over():
 func update_score(score):
 	$ScoreLabel.text = "Score: " + str(score)
 	
-func update_level(level):
+func update_level(level, player : Player):
 	$EXPBar/LevelLabel.text = "Level " + str(level)
 	
 func update_score_timer(time):

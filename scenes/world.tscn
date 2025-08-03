@@ -19,10 +19,9 @@
 unique_name_in_owner = true
 enemies = Array[PackedScene]([ExtResource("3_4wyf3"), ExtResource("3_i7141"), ExtResource("4_4mrxx"), ExtResource("5_q5onr")])
 
-[node name="Player" parent="." node_paths=PackedStringArray("weapons") groups=["Player"] instance=ExtResource("1_nnsk1")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_nnsk1")]
 unique_name_in_owner = true
 position = Vector2(11, 28)
-weapons = [null, null, null, null]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.25, 0.25)
