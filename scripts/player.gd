@@ -43,8 +43,8 @@ func _ready() -> void:
 	
 func level_up_player() -> void:
 	#callLevelUpMenu
-	level_up.emit(level, self)
 	level += 1
+	level_up.emit(level, self)
 	pass
 	
 func addEXP() -> void:
