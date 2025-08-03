@@ -8,6 +8,8 @@ var projectile : PackedScene
 var thumbnail : Texture2D
 @export
 var weaponName : String = "Default Name"
+@export
+var audioChannel : AudioManager.Channel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -1,7 +1,12 @@
 extends Node2D
 
+class_name AudioManager
+
 @export var polyphonic_sound_effect_player: AudioStreamPlayer2D
 @export var audio_library: AudioLibrary
+
+enum Channel { BASS_ACTIVE, GUITAR_ACTIVE, PAINO_ACTIVE, VIOLINS_ACTIVE, TRUMPETS_ACTIVE, KAZOO_ACTIVE }
+
 
 func _ready():
 	polyphonic_sound_effect_player.stream = AudioStreamPolyphonic.new()
@@ -57,7 +62,7 @@ func _input(event):
 func update_audio_busses():
 	# bass bus
 	var bass_index = AudioServer.get_bus_index("BassBus")
-	AudioServer.set_bus_volume_db(bass_index, 11 if bass_active else -80.0)
+	AudioServer.set_bus_volume_db(bass_index, 0.0 if bass_active else -80.0)
 	# bass bus
 	var guitar_index = AudioServer.get_bus_index("GuitarBus")
 	AudioServer.set_bus_volume_db(guitar_index, 0.0 if guitar_active else -80.0)

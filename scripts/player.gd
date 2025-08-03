@@ -50,7 +50,7 @@ func level_up_player() -> void:
 func addEXP() -> void:
 	exp += 1
 	exp_up.emit()
-	if(exp == level*level): #exponential leveling
+	if(exp == getNextLevelEXP()): #exponential leveling
 		level_up_player()
 
 func _process(delta: float) -> void:
@@ -107,10 +107,10 @@ func getEXP() -> int:
 	return exp
 	
 func getLevelEXP() -> int:
-	return level^2
+	return pow(level, 2)
 
 func getNextLevelEXP() -> int:
-	return (level+1)^2
+	return pow(level + 1, 2)
 
 func IsDead() -> bool:
 	return HP <= 0
