@@ -43,15 +43,16 @@ func _ready() -> void:
 	
 func level_up_player() -> void:
 	#callLevelUpMenu
-	level += 1
 	level_up.emit(level, self)
+	level += 1
 	pass
 	
 func addEXP() -> void:
 	exp += 1
 	exp_up.emit()
-	if(exp == level*level): #exponential leveling
+	if(exp == getNextLevelEXP()): #exponential leveling
 		level_up_player()
+		
 
 func _process(delta: float) -> void:
 	if IsDead():
@@ -107,10 +108,10 @@ func getEXP() -> int:
 	return exp
 	
 func getLevelEXP() -> int:
-	return level^2
+	return level*level
 
 func getNextLevelEXP() -> int:
-	return (level+1)^2
+	return (level+1)*(level+1)
 
 func IsDead() -> bool:
 	return HP <= 0
