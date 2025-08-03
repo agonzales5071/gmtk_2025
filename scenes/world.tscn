@@ -57,6 +57,9 @@ tile_set = SubResource("TileSet_xo05s")
 unique_name_in_owner = true
 enemies = Array[PackedScene]([ExtResource("3_4wyf3"), ExtResource("3_i7141"), ExtResource("4_4mrxx"), ExtResource("5_q5onr")])
 
+[node name="WeaponCache" parent="." instance=ExtResource("8_7r4gi")]
+unique_name_in_owner = true
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_nnsk1")]
 unique_name_in_owner = true
 position = Vector2(11, 28)
@@ -97,9 +100,6 @@ rotation = 1.5708
 scale = Vector2(-134.934, 6.043)
 
 [node name="Enemies" type="Node" parent="."]
-unique_name_in_owner = true
-
-[node name="WeaponCache" parent="." instance=ExtResource("8_7r4gi")]
 unique_name_in_owner = true
 
 [node name="HUD" parent="." instance=ExtResource("6_qfnet")]

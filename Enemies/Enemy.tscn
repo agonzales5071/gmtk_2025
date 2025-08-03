@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bl62ho2m0jkt8"]
+[gd_scene load_steps=8 format=3 uid="uid://bl62ho2m0jkt8"]
 
 [ext_resource type="Script" uid="uid://b4xyydi2ujujp" path="res://Enemies/Scripts/enemy.gd" id="1_4isyn"]
 [ext_resource type="Texture2D" uid="uid://cxic7hb85k346" path="res://SpriteSheets/cymbal-monkey.PNG" id="2_wdetw"]
@@ -28,6 +28,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wwv6"]
 radius = 63.0066
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4isyn"]
+bg_color = Color(1, 0.0862745, 0, 1)
+border_blend = true
+
 [node name="Enemy2" type="CharacterBody2D" groups=["Enemies"]]
 scale = Vector2(1, 1.09374)
 collision_layer = 3
@@ -41,3 +45,21 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5wwv6")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = 119.773
+offset_right = -53.0
+offset_bottom = 132.773
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.97471, 2.38919)
+theme_override_styles/fill = SubResource("StyleBoxFlat_4isyn")
+value = 50.0
+show_percentage = false

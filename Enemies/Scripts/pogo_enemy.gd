@@ -14,7 +14,7 @@ var target_y: float  # Slowly updated toward player.y
 func _ready():
 	SPEED = 200.0
 	target_y = position.y  # Start targeting current position
-	
+	super()
 
 func _process(delta: float) -> void:
 	bounce_timer -= delta

@@ -13,6 +13,7 @@ func _ready():
 	target_pos = player.position
 	SPEED = SPEED*2
 	HP = HP/2
+	super()
 
 func _process(delta):
 	if t < 1.0:

@@ -28,8 +28,6 @@ var timeToShot = 0.5
 var lastShot : int = 0
 var invincible = false
 
-@onready var weapon_cache = %WeaponCache.get_children(false)
-
 func GiveWeapon(weapon : Weapon, slot : int) -> void:
 	assert(slot < 4)
 	var oldWeapon = weaponsPlacement[slot].get_children()
@@ -42,8 +40,9 @@ func GiveWeapon(weapon : Weapon, slot : int) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GiveWeapon(weapon_cache[0], 0);
-	GiveWeapon(weapon_cache[1], 1);
+	var randomStarters = %WeaponCache.GetRandomWeapons(1)
+	GiveWeapon(randomStarters[0], 1);
+	GiveWeapon(randomStarters[1], 2);
 	pass
 	
 func level_up_player() -> void:

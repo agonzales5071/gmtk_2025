@@ -9,6 +9,10 @@ class_name Enemy
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 @onready var gm = get_tree().get_nodes_in_group("GameManager")[0]
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var health_bar: ProgressBar = $ProgressBar
+var heal_bar_visible : int = 0
+const heal_bar_time = 1.0
+
 var speedDownMultiplier := 1.0
 var speedDownTimer : SceneTreeTimer
 
@@ -17,6 +21,10 @@ func GiveDamage() -> float:
 
 func TakeDamage(amount: float) -> void:
 	HP -= amount
+	health_bar.value = HP
+	heal_bar_visible += 1
+	get_tree().create_timer(heal_bar_time).timeout.connect(\
+		func() -> void: heal_bar_visible-= 1)
 	if (HP <= 0):
 		addToScore()
 		addToEXP()
@@ -25,7 +33,12 @@ func TakeDamage(amount: float) -> void:
 func GetSpeed() -> float:
 	return SPEED * speedDownMultiplier
 
+func _ready() -> void:
+	health_bar.min_value = 0
+	health_bar.max_value = HP
+
 func _process(delta: float) -> void:
+	health_bar.visible = heal_bar_visible > 0
 	var direction = position.direction_to(player.position)
 	if direction:
 		velocity = direction * GetSpeed()
