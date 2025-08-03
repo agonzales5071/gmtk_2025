@@ -1,11 +1,9 @@
-extends Projectile
+extends BasicProjectile
 
 class_name Thump
 
 @export
 var rangeMult = 1.0
-@export
-var damage = 20
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D

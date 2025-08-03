@@ -11,6 +11,9 @@ var weaponName : String = "Default Name"
 @export
 var audioChannel : AudioManager.Channel
 
+var level
+var buff = 0
+
 var projectileRandomized : Projectile
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +28,9 @@ func Shoot() -> Node:
 	var animation_name = "fire"
 	if sprite_frames.has_animation(animation_name):
 		play(animation_name)
-	return projectileRandomized.duplicate()
+	var projectileRand = projectileRandomized.duplicate()
+	(projectileRand as BasicProjectile).damage += buff
+	return projectileRand
 
 
 func _on_animation_finished() -> void:
@@ -33,4 +38,10 @@ func _on_animation_finished() -> void:
 	pass # Replace with function body.
 	
 func Randomize(level : int) -> void:
+	self.level = level
+	buff = randi_range(-1, level)
+	if sign(buff) < 0:
+		weaponName += " " + str(buff)
+	else:
+		weaponName += " +" + str(buff)
 	pass
