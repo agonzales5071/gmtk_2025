@@ -40,6 +40,7 @@ script = ExtResource("1_g1w8m")
 [node name="BasicWeapon" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("2_m76bf")
 thumbnail = ExtResource("4_3kfg0")
+audioChannel = 5
 
 [node name="BasicWeaponThump" parent="." instance=ExtResource("1_fmraw")]
 scale = Vector2(0.5, 0.5)
@@ -50,8 +51,10 @@ thumbnail = ExtResource("3_vwrdq")
 [node name="BasicWeaponGoo" parent="." instance=ExtResource("1_fmraw")]
 projectile = ExtResource("2_wkvw8")
 thumbnail = ExtResource("8_invvq")
+audioChannel = 4
 
 [node name="BasicWeaponRocket" parent="." instance=ExtResource("1_fmraw")]
 sprite_frames = SubResource("SpriteFrames_3kfg0")
 projectile = ExtResource("4_vwrdq")
 thumbnail = ExtResource("6_vwrdq")
+audioChannel = 1
