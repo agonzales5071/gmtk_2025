@@ -19,7 +19,7 @@ func ShowMenu(weapons : Array[Weapon], player : Player) -> void:
 	for i in newWeapons.size():
 		if (newWeapons[i]):
 			new_weapons_ui[i].icon = newWeapons[i].thumbnail
-			new_weapons_ui[i].text = newWeapons[i].name
+			new_weapons_ui[i].text = newWeapons[i].weaponName
 			new_weapons_ui[i].weapon = newWeapons[i]
 			new_weapons_ui[i].visible = true
 		else:
@@ -27,7 +27,7 @@ func ShowMenu(weapons : Array[Weapon], player : Player) -> void:
 	for i in player.weapons.size():
 		if player.weapons[i]:
 			old_weapons_ui[i].icon = player.weapons[i].thumbnail
-			old_weapons_ui[i].text = player.weapons[i].name
+			old_weapons_ui[i].text = player.weapons[i].weaponName
 			old_weapons_ui[i].weapon = player.weapons[i]
 		else:
 			old_weapons_ui[i].icon = emptyIcon
@@ -37,8 +37,9 @@ func ShowMenu(weapons : Array[Weapon], player : Player) -> void:
 func _on_confirm_button_pressed() -> void:
 	var selectedNew := new_weapons_ui[0].button_group.get_pressed_button() as WeaponButton
 	var selectedOld := old_weapons_ui[0].button_group.get_pressed_button() as WeaponButton
-	if selectedNew.weapon:
-		player.GiveWeapon(selectedNew.weapon, selectedOld.idx)
+	if !selectedNew and !selectedOld:
+		if selectedNew.weapon:
+			player.GiveWeapon(selectedNew.weapon, selectedOld.idx)
 	get_tree().paused = false
 	visible = false
 
