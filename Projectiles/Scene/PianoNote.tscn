@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://doxnown1k2t2f"]
+
+[ext_resource type="Script" uid="uid://cc0jbhi073lnu" path="res://Projectiles/Scripts/piano_note.gd" id="1_jvnyv"]
+[ext_resource type="Texture2D" uid="uid://ctkgg2olpwpv6" path="res://icon.svg" id="2_6dexf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lephw"]
+radius = 34.0
+height = 262.0
+
+[node name="PianoNote" type="Node2D"]
+rotation = -1.5708
+script = ExtResource("1_jvnyv")
+damage = 10
+metadata/_custom_type_script = "uid://ddy76a110lucs"
+
+[node name="Wave" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.780392)
+position = Vector2(0, 2.00001)
+scale = Vector2(0.5, 2)
+texture = ExtResource("2_6dexf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_lephw")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
