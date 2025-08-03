@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlhi04qmsixa5"
-path="res://.godot/imported/Piano.PNG-251fbf4a770995199b5a0d170afa8972.ctex"
+uid="uid://djawtdkugy2jf"
+path="res://.godot/imported/Pianos.PNG-209156425b8d504367e50ddc3bc15a04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpriteSheets/Piano.PNG"
-dest_files=["res://.godot/imported/Piano.PNG-251fbf4a770995199b5a0d170afa8972.ctex"]
+source_file="res://SpriteSheets/Pianos.PNG"
+dest_files=["res://.godot/imported/Pianos.PNG-209156425b8d504367e50ddc3bc15a04.ctex"]
 
 [params]
 
