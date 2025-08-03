@@ -21,10 +21,7 @@ func _process(delta: float) -> void:
 func Shoot() -> Node:
 	var animation_name = "fire"
 	if sprite_frames.has_animation(animation_name):
-		print("Animation '" + animation_name + "' exists!")
 		play(animation_name)
-	else:
-		print("noexist")
 		
 	return projectile.instantiate()
 
