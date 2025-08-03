@@ -1,48 +1,27 @@
-extends "res://Enemies/Scripts/enemy.gd"
+extends Enemy
 
-@export var GRAVITY: float = 1000.0
-@export var AIR_TIME: float = 1.5 # Duration of the arc
-@export var APPROACH_MIN: float = 0.05
-@export var APPROACH_MAX: float = 0.3
-@export var APPROACH_DISTANCE: float = 400.0  # Max horizontal distance at which to scale
+@export var AIR_HEIGHT: float = 200
+var startPos : Vector2
+var endPos : Vector2
+@export var maxDistJump : float = 2000
+var time_in_flight : SceneTreeTimer
+var airTime
 
-
-var vertical_velocity = 0.0
-var bounce_timer = 0.0
-var target_y: float  # Slowly updated toward player.y
-
-func _ready():
-	SPEED = 200.0
-	target_y = position.y  # Start targeting current position
+func _ready() -> void:
+	UpdateTarget()
 	super()
 
+func UpdateTarget() -> void:
+	startPos = global_position
+	var distJump = min(maxDistJump, startPos.distance_to(player.global_position))
+	endPos = startPos + startPos.direction_to(player.global_position) * distJump
+	airTime = startPos.distance_to(endPos)/SPEED
+	time_in_flight = get_tree().create_timer(airTime)
+	time_in_flight.timeout.connect(UpdateTarget)
+
 func _process(delta: float) -> void:
-	bounce_timer -= delta
-
-	var direction = position.direction_to(player.position)
-	var horizontal_velocity = direction.x * GetSpeed()
-
-	if bounce_timer <= 0.0:
-		# 1. Measure horizontal distance to player
-		var dx = abs(player.position.x - position.x)
-
-		# 2. Calculate dynamic approach factor based on dx
-		var t = clamp(1.0 - (dx / APPROACH_DISTANCE), 0.0, 1.0)
-		var approach_factor = lerp(APPROACH_MIN, APPROACH_MAX, t)
-
-		# 3. Smoothly update target_y
-		target_y = lerp(target_y, player.position.y, approach_factor)
-
-		# 4. Compute jump velocity to hit target_y in air time
-		var dy = target_y - position.y
-		vertical_velocity = (dy - 0.5 * GRAVITY * AIR_TIME * AIR_TIME) / AIR_TIME
-
-		bounce_timer = AIR_TIME
-
-	# Apply gravity
-	vertical_velocity += GRAVITY * delta
-
-	velocity.x = horizontal_velocity
-	velocity.y = vertical_velocity
-
+	if time_in_flight:
+		var timePos = (airTime - time_in_flight.time_left)\
+						/ airTime
+		position = Math.GetParabolicPos(startPos, endPos, AIR_HEIGHT, timePos)
 	move_and_slide()

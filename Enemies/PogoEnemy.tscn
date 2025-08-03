@@ -21,11 +21,9 @@ animations = [{
 
 [node name="Enemy2" instance=ExtResource("1_nwkrn")]
 script = ExtResource("2_lvkdj")
-GRAVITY = 1000.0
-AIR_TIME = 1.5
-APPROACH_MIN = 0.05
-APPROACH_MAX = 0.3
-APPROACH_DISTANCE = 400.0
+AIR_HEIGHT = 600.0
+maxDistJump = 2000.0
+SPEED = 900.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(39, -22.8574)

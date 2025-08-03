@@ -162,6 +162,7 @@ sprite_frames = SubResource("SpriteFrames_ysens")
 autoplay = "default"
 projectile = ExtResource("2_m76bf")
 thumbnail = ExtResource("4_3kfg0")
+weaponName = " Kazoo "
 audioChannel = 5
 
 [node name="BasicWeaponThump" parent="." instance=ExtResource("1_fmraw")]
@@ -171,12 +172,14 @@ animation = &"fire"
 autoplay = "default"
 projectile = ExtResource("3_m76bf")
 thumbnail = ExtResource("3_vwrdq")
+weaponName = "   Drum   "
 
 [node name="BasicWeaponGoo" parent="." instance=ExtResource("1_fmraw")]
 sprite_frames = SubResource("SpriteFrames_cwpws")
 animation = &"fire"
 projectile = ExtResource("2_wkvw8")
 thumbnail = ExtResource("8_invvq")
+weaponName = "Trumpet"
 audioChannel = 4
 
 [node name="BasicWeaponRocket" parent="." instance=ExtResource("1_fmraw")]
@@ -185,6 +188,7 @@ animation = &"fire"
 autoplay = "default"
 projectile = ExtResource("4_vwrdq")
 thumbnail = ExtResource("6_vwrdq")
+weaponName = "  Guitar  "
 audioChannel = 1
 
 [node name="BasicWeaponPiano" parent="." instance=ExtResource("1_fmraw")]
