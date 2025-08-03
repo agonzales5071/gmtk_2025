@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://yf10mv81444x"]
 
 [ext_resource type="Script" uid="uid://cqxmvuxaabqj" path="res://Projectiles/Scripts/thump.gd" id="1_2if3c"]
-[ext_resource type="Texture2D" uid="uid://drb8kl6kre7vf" path="res://iconDupe.bmp" id="2_mjath"]
+[ext_resource type="Texture2D" uid="uid://eix4fw4x7eh2" path="res://SpriteSheets/DrumBeat.png" id="2_afer0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2if3c"]
 radius = 959.133
@@ -14,8 +14,9 @@ metadata/_custom_type_script = "uid://d15u5ebqfbrqf"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.816108, 0.404577, 0.126487, 0.215686)
-scale = Vector2(14.0041, 14.0041)
-texture = ExtResource("2_mjath")
+position = Vector2(10.9999, -4.19617e-05)
+scale = Vector2(4.725, 4.79375)
+texture = ExtResource("2_afer0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.57079
