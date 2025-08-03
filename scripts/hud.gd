@@ -22,6 +22,20 @@ func show_game_over():
 func update_score(score):
 	$ScoreLabel.text = "Score: " + str(score)
 	
+func update_score_timer(time):
+	var sec = time % 60
+	var secStr = str(getTwoDigitFloatAsString(sec))
+	var min = round((time/60)%60)
+	var minStr = str(getTwoDigitFloatAsString(min))
+	var hour = int(time/3600)
+	$TimerLabel.text = "Time: " + str(hour) + ":" + minStr + ":" + secStr
+	
+func getTwoDigitFloatAsString(time : float) -> String:
+	var ones_digit = int(time) % 10
+	var tens_digit = (int(time) / 10) % 10
+	return str(tens_digit) + str(ones_digit)
+	
+	
 func _on_start_button_pressed():
 	$StartButton.hide()
 	start_game.emit()

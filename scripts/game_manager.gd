@@ -3,11 +3,11 @@ extends Node
 @export var SpawnRate = 0.5
 @export var SpawnRangeMax = 2000
 @export var SpawnRangeMin = 1000
-@export
-var enemies : Array[PackedScene]
+@export var enemies : Array[PackedScene]
+@export var score = 0
+@export var time = 0
 
 var lastSpawn = 0.0
-var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,7 +38,8 @@ func game_over():
 
 func new_game():
 	score = 0
-	%HUD.update_score(score)
+	time = 0
+	%HUD.update_score_timer(score)
 	#%HUD.show_message("Get Ready")
 	#$Player.start($StartPosition.position)
 	%StartTimer.start()
@@ -47,5 +48,9 @@ func _on_start_timer_timeout() -> void:
 	%ScoreTimer.start()
 
 func _on_score_timer_timeout() -> void:
-	score += 1
+	time += 1
+	%HUD.update_score_timer(time)
+	
+func increase_score(amount) -> void:
+	score += amount
 	%HUD.update_score(score)
